@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>广工二手书网</title>
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script src="js/require.js" data-main="js/register_main" defer async="true"></script>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <div class="headerBar">
+        <div class="topBar">
+            <div class="comWidth">
+                <div class="leftArea">
+                    欢迎来广工二手书网！ &nbsp;
+                    <a href="">登录</a>
+                    <a href="">免费注册</a>
+                </div>
+                <div class="rightArea">
+                    <ul>
+                        <li><a href=""><i class="shopCar"></i>购物车</a></li>
+                        <li><a href="">收藏夹</a></li>
+                        <li><a href="">个人中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 图片 -->
+    <div class="return">
+        <a href="index.html" title="回到首页">
+            <img src="images/logo.jpg" alt="广工二手书网">
+        </a>
+    </div>
+    <!-- 注册表单 -->
+    <div class="register">
+        <div class="reg_head">
+            <h3>新用户注册</h3>
+        </div>
+        <div class="reg_body">
+            <form action="" method="post">
+                <table>
+                    <tbody>
+                        <tr class="reg_r">
+                            <td class="reg_t">账号：</td>
+                            <td class="reg_i">
+                                <input type="text" id="reg_account" name="reg_account" tabindex="1">
+                                <span id="spn_username_ok" class="ok" style="display: none"></span>
+                                <span id="spn_username_wrong" class="warm"  >
+                                    <span class="icon"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="reg_r">
+                            <td class="reg_t">密码：</td>
+                            <td class="reg_i">
+                                <input type="password" id="reg_password" name="reg_password" onpaste="return false" tabindex="2">
+                                <span id="spn_password_ok" class="ok" style="display: none"></span>
+                                <span id="spn_password_wrong" class="warm"  style="display: none;">
+                                    <span class="icon"></span>
+                                </span>
+                                <span id="spnPwdStrongTip" class="pswState pswState-poor" style="display: none">
+                                    <span class="s1">弱</span>
+                                    <span class="s2">中</span>
+                                    <span class="s3">强</span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="reg_r">
+                            <td class="reg_t">确认密码：</td>
+                            <td class="reg_i">
+                                <input type="password" id="reg_re_password" name="reg_re_password" onpaste="return false" tabindex="3">
+                                <span id="spn_repassword_ok" class="ok" style="display: none"></span>
+                                <span id="spn_repassword_wrong" class="warm"  style="display: none;">
+                                    <span class="icon"></span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="reg_r">
+                            <td class="reg_t">图片验证码：</td>
+                            <td class="reg_i">
+                                <input type="text" id="reg_vcode" name="reg_vcode" tabindex="4" maxlength="4">
+                                <span id="spn_vcode_ok" class="ok" style="display: none"></span>
+                                <span id="spn_vcode_wrong" class="warm"  style="display: none;">
+                                    <span class="icon"></span>
+                                </span>
+                                <div class="vbox">
+                                    <a href=""><img src="" alt="" title="点击更换图片" alt="点击更换图片" class="" id="imgvcode"/></a>
+                                    看不清？
+                                    <a href="">换张图</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="button" id="reg_btn" name="reg_btn" title="注册">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
