@@ -1,0 +1,58 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script src="js/require.js" data-main="js/login_main" defer async="true"></script>
+</head>
+<body>
+    <div class="login">
+        <div class="log_header">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+        <!-- 登陆框 -->
+        <div class="log_wrap">
+            <div class="pic">
+                <img src="images/login.jpg" alt="">
+            </div>
+            <div class="log_body">
+                <p class="title">登录</p>
+                <div class="log_form">
+                    <form action="" method="post">
+                        <!-- 账号 -->
+                        <div class="account">
+                            <span></span>
+                            <input type="text" placeholder="用户名" id="username">
+                        </div>
+                        <p class="tips"><span id="accountmessage" style="display:none">请输入长度为6-16位的账号</span></p>
+                        <!-- 密码 -->
+                        <div class="password">
+                            <span></span>
+                            <input type="password" placeholder="密码" id="password">
+                        </div>
+                        <p class="tips"><span id="passwordmessage" style="display:none">请输入长度为6-20个字符的密码</span></p>
+                        <!-- 验证码 -->
+                        <div class="cap_wrap">
+                            <div class="captcha">
+                            <span></span>
+                            <input type="text" placeholder="验证码" id="captcha">
+                            </div>
+                            <a href=""><img src="" alt="图片"></a>
+                            <a href="">换一张</a>
+                        </div>
+                        <p class="tips"><span id="captchamessage" style="display:none">请输入图片中的字符，不区分大小写</span></p>
+                        <!-- 登录 -->
+                        <button type="submit" >登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
