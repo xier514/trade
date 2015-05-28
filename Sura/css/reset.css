@@ -61,3 +61,4 @@ hr {
 html { overflow-y: scroll; }
 .fl { float: left;}
 .fr { float: right;}
+.clear {clear: left;}

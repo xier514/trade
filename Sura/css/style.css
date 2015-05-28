@@ -22,6 +22,11 @@
             4.2热卖商品
             4.3筛选框
             4.4排序
+            4.5商品列表
+        5.商品
+            5.1图书信息
+        6.个人中心
+            6.1个人导航
     -------------------
     
     COLOURS -----------
@@ -1025,7 +1030,8 @@
 }
 
 .list_right span a:hover {
-    color: #ff7a29;
+    background: #ff7a29;
+    color: #ffffff;
 }
 
 /* 4.4排序
@@ -1034,8 +1040,12 @@
     width: 920px;
     height: 38px;
     float: left;
+    color: #323232;
     border: 1px solid #B7B9AC;
     background: url(../images/tools_box_bg.png) right -319px;
+}
+.sort a {
+    color: #555;
 }
 
 .sort div {
@@ -1048,7 +1058,7 @@
     width: 45px;
     font-weight: bold;
     padding-left: 10px;
-    color: #323232;
+
 }
 
 .sort ul li {
@@ -1078,7 +1088,7 @@
     width: 76px;
     text-align: center;
     background: url(../images/tools_box_bg.png) right -181px no-repeat;
-    color: #323232;
+
     cursor: pointer;
 }
 
@@ -1113,6 +1123,7 @@
     line-height: 20px;
     border: solid 1px #c2c2c2;
     cursor: pointer;
+    z-index: 2;
 }
 
 .sort .select_box .d {
@@ -1133,7 +1144,269 @@
 }
 
 .sort .select_pop {
+    display: none;
     position: absolute;
-    top:10px;
+    background: #ffffff;
+    top:20px;
+    left: -1px;
+    height:auto;
     border: solid 1px #c2c2c2;
+    border-bottom: none;
+}
+
+.sort .select_pop li {
+    height: 24px;
+    width: 97px;
+    padding-left: 10px;
+    line-height: 24px;
+    border-bottom: solid 1px #c2c2c2;;
+}
+
+.sort .select_pop li:hover{
+    background: #e0e0e0;
+}
+
+.sort .select_pop li span  {
+    display: inline-block;
+    width: 9px;
+    height: 11px;
+    margin-left: 4px;
+    background: url(../images/tools_box_bg.png) 0 -243px;
+    vertical-align: middle;
+}
+
+.sort .select_pop li .up {
+    background-position: -11px -243px;
+}
+
+/* 4.5商品列表
+---------------------------------------------------------------------- */
+.shopList {
+    width: 920px;
+}
+
+.shopList a {
+    color: #1A66B3;
+}
+
+.shopList a:hover {
+    text-decoration: underline;
+}
+
+.shopList li {
+    border-bottom: 1px solid #979797;
+    height: 200px;
+}
+
+.shopList li:hover {
+    background: #fff2db;
+}
+
+.shopList .inner {
+    padding-left: 15px;
+    padding-top: 15px;
+    position: relative;
+}
+
+.shopList .photo {
+    float: left;
+    border: 1px solid #979797;
+    margin-right: 10px;
+}
+
+.shopList .title {
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+.shopList .inner .author{
+    color: #000000;
+}
+
+.shopList .inner .information {
+    margin-bottom: 20px;
+}
+
+.shopList .inner .buy_col {
+    width: 300px;
+    float: right;
+}
+
+.shopList .inner .buy_col a {
+    height: 21px;
+    width: 80px;
+    display: inline-block;
+    background: url(../images/buy_col.jpg);
+    margin-left:15px;
+}
+
+.shopList .inner  .price {
+    display: inline-block;
+    float: right;
+    height: 22px;
+    line-height: 22px;
+    color: #b33a20;
+    font-weight: bold;
+}
+
+.shopList .inner .buy_col .collection:hover {
+    background-position: 0 -21px;
+}
+
+.shopList .inner .buy_col .buy {
+    background-position: 0 -63px;
+}
+
+.shopList .inner .buy_col .buy:hover {
+    background-position: 0 -42px;
+}
+
+/* 5.1图书信息
+---------------------------------------------------------------------- */
+.good_in {
+    height: 500px;
+    width: 800px;
+    margin-left: 60px;
+
+}
+
+.good_in .photo {
+    width: 350px;
+    height: 350px;
+}
+
+.good_in  .m_r6 {
+    height: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.good_in .book_in h1 {
+    margin-bottom: 20px;
+}
+
+.good_in  .m_r6 .show_info {
+    color: #979797;
+}
+
+.good_in  .m_r6 .price {
+    color: #f40000;
+    font-weight: bold;
+}
+
+.btn_p div{
+    float: left;
+    margin-left: 15px;
+}
+
+.btn_p div a {
+    width: 80px;
+    height: 22px;
+    display: inline-block;
+    background: url(../images/buy_col.jpg);
+}
+
+.btn_p .collect a:hover{
+    background-position: 0 -21px;
+}
+
+.btn_p .buy a{
+    background-position: 0 -42px;
+}
+
+.btn_p .buy a:hover{
+    background-position: 0 -63px;
+}
+
+/* 6.1个人导航
+---------------------------------------------------------------------- */
+.my_left {
+    width: 200px;
+    border: 1px solid #979797;
+    border-top: 5px solid #979797;
+}
+.my_left_title {
+    font-size: 14px;
+    font-family: "微软雅黑";
+    font-weight: bold;
+    color: #404040;
+}
+
+.my_left_title {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 10px;
+    background-color: #f7f7f7;
+    position: relative;
+}
+
+.my_left_content li{
+    line-height: 25px;
+    height: 25px;
+    padding-left: 30px;
+}
+
+.my_left_content li a {
+    color: #404040;
+}
+
+.my_left_content li a:hover {
+    text-decoration: underline;
+    color: #009c74;
+}
+
+.my_right {
+    margin-left:35px;
+}
+
+.my_right .my_box {
+    border: 1px solid #ddd;
+    margin-bottom: 25px;
+}
+
+.my_right .my_right_title {
+    height: 30px;
+    padding: 0 10px;
+    background-color: #f7f7f7;
+    line-height: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.my_right .my_right_title span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #009379;
+}
+
+.my_right .my_right_title a {
+    float: right;
+    color: #1a66b3;
+}
+
+.my_right .my_right_title a:hover {
+    text-decoration: underline;
+}
+
+.my_right .my_right_list {
+    padding:0 10px;
+}
+
+.my_right .my_right_list ul {
+    display: block;
+    height: 50px;
+    padding: 10px 0px;
+    margin-left: 19px;
+}
+
+.my_right .my_right_list ul li {
+    float: left;
+    margin-right: 20px;
+    width: 54px;
+}
+
+.my_right .my_right_list ul li img {
+    height: 50px;
+    width: 50px;
 }

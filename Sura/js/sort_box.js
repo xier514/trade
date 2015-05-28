@@ -14,4 +14,13 @@ define(function (){
             $(this).children("a").css("color", "#6B6F5E");
         }
     });
+
+    //下拉菜单
+    $(".select_box").mouseover(function() {
+        $(this).children(".select_pop").show();
+    });
+    $(".select_box").mouseout(function() {
+        $(this).children(".select_pop").hide();
+    });
+
 })
