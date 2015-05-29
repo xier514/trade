@@ -40,13 +40,13 @@
 			<h3>新用户注册</h3>
 		</div>
 		<div class="reg_body">
-			<form action="" method="post">
+			<form action="__APP__/home/Register/userRegister" method="post">
 				<table>
 					<tbody>
 						<tr class="reg_r">
 							<td class="reg_t">账号：</td>
 							<td class="reg_i"><input type="text" id="reg_account"
-								name="reg_account" tabindex="1"> <span
+								name="reg_account" tabindex="1" required="required"> <span
 								id="spn_username_ok" class="ok" style="display: none"></span> <span
 								id="spn_username_wrong" class="warm"> <span class="icon"></span>
 							</span></td>
@@ -82,14 +82,15 @@
 									<span class="icon"></span>
 							</span>
 								<div class="vbox">
-									<a href=""><img src="" alt="" title="点击更换图片" alt="点击更换图片"
-										class="" id="imgvcode" /></a> 看不清？ <a href="">换张图</a>
+									<a href=""><img src="__APP__/home/Register/verify" alt=""
+										title="点击更换图片" alt="点击更换图片" class="" id="imgvcode" /></a> 看不清？ <a
+										href="">换张图</a>
 								</div></td>
 						</tr>
 						<tr>
 							<td></td>
-							<td><input type="button" id="reg_btn" name="reg_btn"
-								title="注册"></td>
+							<td><input type="submit" id="reg_btn" name="reg_btn"
+								title="注册" value=""></td>
 						</tr>
 					</tbody>
 				</table>

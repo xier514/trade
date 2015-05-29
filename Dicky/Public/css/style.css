@@ -27,6 +27,10 @@
             5.1图书信息
         6.个人中心
             6.1个人导航
+        7.我的收藏
+            7.1排序
+            7.2操作
+            7.3表头
     -------------------
     
     COLOURS -----------
@@ -1409,4 +1413,185 @@
 .my_right .my_right_list ul li img {
     height: 50px;
     width: 50px;
+}
+
+/* 7.1排序
+---------------------------------------------------------------------- */
+.filter {
+    width: 780px;
+    height: 35px;
+    margin-bottom: 15px;
+    border:1px solid #979797;
+    border-top: 2px solid #009379;
+    background: url(../images/bg_myfavo.png) repeat-x 0 -48px;
+}
+
+.filter .tit {
+    float: left;
+}
+
+.filter .sorting_box li,.filter .tit {
+    float: left;
+    height: 35px;
+    padding: 0 30px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.filter .sorting_box li {
+    border-left: 1px solid #fff;
+    border-right: 1px solid #e9e9e9;
+    cursor: pointer;
+}
+
+.filter .sorting_box li:hover {
+    background: rgb(224,252,243);
+}
+
+.filter .sorting_box li .icon{
+    display: inline-block;
+    height: 8px;
+    width: 7px;
+    background: url(../images/tools_box_bg.png) 0 -76px;
+    margin-left: 8px;
+    overflow: hidden;
+}
+
+.my_right .filter .sorting_box .on {
+    background-color: #6dc7b4;
+    color: #fff;
+    padding-bottom: 1px;
+    border: none;
+}
+
+/* 7.2操作
+---------------------------------------------------------------------- */
+.op_box {
+    height: 32px;
+    line-height: 32px;
+    border: solid #dadada;
+    border-width: 1px 1px 0;
+    background: url(../images/bg_myfavo.png) repeat-x 0 -140px;
+}
+
+.pagepanel {
+    float: right;
+    display: inline;
+    height: 23px;
+}
+
+.op_box .paginating {
+    float: right;
+    padding: 4px 8px;
+}
+
+.op_box .paginating a span {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.op_box .paginating a {
+    float: right;
+    display: inline-block;
+    padding: 0 7px;
+    margin-left: 5px;
+    line-height: 23px;
+    border: 1px solid #B7B9AC;
+    border-radius: 5px;
+}
+
+
+.op_box .paginating .pagebtn span {
+    height: 23px;
+    text-align: center;
+    color: #1a66b3;
+    font-size: 12px;
+    line-height: 23px;
+}
+
+.op_box .paginating .pagepanel .current{
+    color: #ffffff;
+    background: #af2018;
+}
+
+.op_box .paginating .pagepanel a:hover {
+    background: #af2018;
+}
+
+.op_box .paginating .pagepanel a:hover span{
+    color: #ffffff;
+}
+
+.op_box .btn {
+    background: url(../images/bg_myfavo.png) repeat-x 0 -80px;
+    padding: 0 10px;
+    border: 1px solid #a8dacf;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 5px;
+    color: #6ab1a2;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.op_box a.btn:hover {
+    background-position: 0 -100px;
+    color: #5ba394;
+    border-color: #9cd3c7;
+    text-decoration: none;
+}
+
+.op_box .all{
+    float: left;
+    margin-right: 20px;
+}
+
+.op_box .all input {
+    vertical-align: middle;
+    margin: -3px 5px 0 9px;
+}
+
+.op_box  .btn_none, .op_box a.btn_none:hover {
+    background-position: 0 -120px;
+    color: #999999;
+    border-color: #abb2b8;
+    cursor: default;
+}
+
+/* 7.3表头
+---------------------------------------------------------------------- */
+.op_box2 {
+    border-top: 1px solid #b2d7ce;
+}
+
+.op_box2 span {
+    border-right: 1px solid #dcdcdc;
+    box-shadow: 1px 0 1px #fff;
+    display: block;
+    float: left;
+    text-align: center;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 10px;
+}
+
+.myfavo_list .r1 {
+     width: 400px;
+ }
+
+.myfavo_list .r2 {
+    width: 140px;
+}
+
+.myfavo_list .r3 {
+    width: 119px;
+}
+
+.myfavo_list .r4 {
+    width: 108px;
+    border: none;
+    box-shadow: none;
 }
