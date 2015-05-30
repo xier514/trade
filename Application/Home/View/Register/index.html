@@ -83,8 +83,10 @@
 							</span>
 								<div class="vbox">
 									<img src="__APP__/home/Register/verify" title="点击更换图片"
-										alt="点击更换图片" id="imgvcode" name="imgvcode" onclick="fleshVerify()" />
-									看不清？ <a onclick="fleshVerify()">换张图</a>
+										alt="点击更换图片" id="imgvcode" name="imgvcode"
+										onClick="this.src='__APP__/home/Register/verify/'+Math.random()" />
+									看不清？ <a
+										onClick="this.src='__APP__/home/Register/verify/'+Math.random()">换张图</a>
 								</div></td>
 						</tr>
 						<tr>
@@ -95,14 +97,6 @@
 					</tbody>
 				</table>
 			</form>
-
-			<script>
-				function fleshVerify() {
-					//重载验证码 
-					var time = new Date().getTime();
-					document.getElementById('imgvcode').src = '__APP__/home/Register/verify/';
-				}
-			</script>
 		</div>
 	</div>
 </body>

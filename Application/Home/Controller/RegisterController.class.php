@@ -8,13 +8,13 @@ class RegisterController extends Controller {
 	public function index() {
 		$this->display ();
 	}
-	public function verify($id = 1) {
+	public function verify() {
 		$config = array (
 				'length' => 4,
 				'useCurve' => false 
 		);
 		$Verify = new \Think\Verify ( $config );
-		$Verify->entry ( $id );
+		$Verify->entry ();
 	}
 	public function idConflict($reg_account) {
 		if ($reg_account) {
@@ -23,8 +23,8 @@ class RegisterController extends Controller {
 		$this->ajaxReturn ( false );
 	}
 	public function checkVerify($reg_vcode) {
-		if ($reg_vcode && $num) {
-			if (check_verify ( $reg_vcode, 1 )) {
+		if ($reg_vcode) {
+			if (check_verify ( $reg_vcode )) {
 				$this->ajaxReturn ( true );
 			}
 		}
@@ -32,7 +32,7 @@ class RegisterController extends Controller {
 	}
 	public function userRegister() {
 		if (IS_POST) {
-			if (check_verify ( I ( 'POST.reg_vcode' ), 1 )) {
+			if (check_verify ( I ( 'POST.reg_vcode' ) )) {
 				if (I ( 'POST.reg_account' ) && I ( 'POST.reg_password' )) {
 					if (! D ( 'User' )->idConflict ( I ( 'POST.reg_account' ) )) {
 						if (I ( 'POST.reg_re_password' ) && I ( 'POST.reg_re_password' ) == I ( 'POST.reg_re_password' )) {

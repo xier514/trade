@@ -99,7 +99,7 @@ $(function() {
             $('#spn_vcode_wrong').hide();
             var input_vco = vco.val();
             $.getJSON('Register/checkVerify/' + input_vco, function(data) {
-                console.log(data);
+                alert(data);
             });
         });
 
