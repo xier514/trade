@@ -30,7 +30,7 @@
 	</div>
 	<!-- 图片 -->
 	<div class="return">
-		<a href="index.html" title="回到首页"> <img
+		<a href="__APP__" title="回到首页"> <img
 			src="__PUBLIC__/images/logo.jpg" alt="广工二手书网">
 		</a>
 	</div>
@@ -82,9 +82,9 @@
 									<span class="icon"></span>
 							</span>
 								<div class="vbox">
-									<a href=""><img src="__APP__/home/Register/verify" alt=""
-										title="点击更换图片" alt="点击更换图片" class="" id="imgvcode" /></a> 看不清？ <a
-										href="">换张图</a>
+									<img src="__APP__/home/Register/verify" alt="" title="点击更换图片"
+										alt="点击更换图片" class="" id="imgvcode" name="imgvcode" onclick="fleshVerify()" />
+									看不清？ <a onclick="fleshVerify()">换张图</a>
 								</div></td>
 						</tr>
 						<tr>
@@ -95,6 +95,14 @@
 					</tbody>
 				</table>
 			</form>
+			<script>
+				function fleshVerify() {
+					//重载验证码 
+					var time = new Date().getTime();
+					document.getElementById('imgvcode').src = '__APP__/home/Register/verify/'
+							+ time;
+				}
+			</script>
 		</div>
 	</div>
 </body>

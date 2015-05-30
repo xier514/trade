@@ -10,4 +10,12 @@ class UserModel extends Model {
 		$data ['us_pw'] = md5 ( $us_pw );
 		$this->add ( $data );
 	}
+	public function idConflict($us_id = 0) {
+		$condition ['us_id'] = $us_id;
+		$data = $this->where ( $condition )->limit ( 1 )->select ();
+		if ($data [0]) {
+			return true;
+		} else
+			return false;
+	}
 }

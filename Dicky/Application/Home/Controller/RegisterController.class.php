@@ -17,20 +17,26 @@ class RegisterController extends Controller {
 	}
 	public function userRegister() {
 		if (IS_POST) {
-			if (check_verify ( I ( 'POST.imgvcode' ), 1 )) {
+			if (check_verify ( I ( 'POST.reg_vcode' ), 1 )) {
 				if (I ( 'POST.reg_account' ) && I ( 'POST.reg_password' )) {
-					if (I ( 'POST.reg_password' ) && I ( 'POST.reg_password' ) == I ( 'POST.reg_password' )) {
+					if (! D ( 'User' )->idConflict ( I ( 'POST.reg_account' ) )) {
+						if (I ( 'POST.reg_re_password' ) && I ( 'POST.reg_re_password' ) == I ( 'POST.reg_re_password' )) {
+							D ( 'User' )->reg ( I ( 'POST.reg_account' ), I ( 'POST.reg_password' ) );
+							$this->success ( '成功', U ( 'Login/index' ) );
+						} else {
+							$this->ajaxReturn ( '确认密码错误' );
+						}
 					} else {
-						$this->error ( '确认密码错误' );
+						$this->ajaxReturn ( '该账号已存在' );
 					}
 				} else {
-					$this->error ( '账号或密码不能为空' );
+					$this->ajaxReturn ( '账号或密码不能为空' );
 				}
 			} else {
-				$this->error ( '验证码错误' );
+				$this->ajaxReturn ( '验证码错误' );
 			}
 		} else {
-			$this->error ( '非法请求' );
+			$this->ajaxReturn ( '非法请求' );
 		}
 	}
 }

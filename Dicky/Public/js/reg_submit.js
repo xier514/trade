@@ -8,8 +8,8 @@ var vco = document.getElementById("reg_vcode");
 var sub = document.getElementById("reg_btn");
 
 sub.onclick = function() {
-    if( !acc.value || !pas.value || rep.value || vco.value) {
-        return false
+    if( !acc.value || !pas.value || !rep.value || !vco.value) {
+       return false;
     }
 }
 
