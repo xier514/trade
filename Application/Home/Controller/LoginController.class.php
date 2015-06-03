@@ -10,9 +10,10 @@ class LoginController extends Controller {
 	}
 	public function userLogin() {
 		if (IS_POST) {
-			if (check_verify ( I ( 'POST.captcha' ), 1 )) {
+			if (check_verify ( I ( 'POST.captcha' ) )) {
 				if (I ( 'POST.username' ) && I ( 'POST.password' )) {
 					if (D ( 'User' )->log ( I ( 'POST.username' ), I ( 'POST.password' ) )) {
+						session ( 'username', I ( 'POST.username' ) );
 						$this->success ( '登录成功', U ( 'Index/index' ) );
 					} else {
 						$this->error ( '账号或密码错误' );

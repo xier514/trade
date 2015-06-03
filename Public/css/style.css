@@ -31,6 +31,7 @@
             7.1排序
             7.2操作
             7.3表头
+            7.4收藏信息
     -------------------
     
     COLOURS -----------
@@ -1594,4 +1595,91 @@
     width: 108px;
     border: none;
     box-shadow: none;
+}
+
+/* 7.4收藏信息
+---------------------------------------------------------------------- */
+.myfavo_list li {
+    height: 100px;
+    padding-top: 20px;
+    border-top: 1px solid #dadada;
+    width: 780px;
+    float: left;
+}
+
+.myfavo_list li .r1, .myfavo_list li .r2, .myfavo_list li .r3, .myfavo_list li .r4 {
+    float: left;
+    height: 100px;
+    overflow: hidden;
+}
+
+.myfavo_list li .center {
+    text-align: center;
+}
+
+.myfavo_list .price {
+    font-family: Arial;
+    color: #CC3300;
+    font-weight: bold;
+}
+
+.myfavo_list .chosen {
+    vertical-align: top;
+    float: left;
+    margin-right: 10px;
+}
+
+.myfavo_list .detail .title {
+    color: #404040;
+}
+.myfavo_list .detail .title:hover {
+    color: #CC3300;
+    text-decoration: underline;
+}
+
+.myfavo_list .things {
+    display: block;
+    float: left;
+    width: 72px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.myfavo_list .things .pic {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    border: 1px solid #dddddd;
+}
+
+.myfavo_list .things img {
+    width: 70px;
+    height: 70px;
+}
+
+.myfavo_list .detail {
+    float: left;
+    line-height: 18px;
+}
+
+.myfavo_list .detail .gray {
+    color: #878787;
+    padding-top: 2px;
+}
+
+.myfavo_list li .r4 {
+    padding-left: 20px;
+    width: 80px;
+    overflow: visible;
+}
+
+.myfavo_list .btn {
+    background: url(../images/bg_myfavo.png) repeat-x;
+    display: inline-block;
+    height: 21px;
+    line-height: 21px;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 3px;
 }
