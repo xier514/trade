@@ -5,9 +5,8 @@ namespace Home\Model;
 use Think\Model;
 
 class NoticeModel extends Model {
-	public function addNotice($us_nu, $no_ty, $no_co, $no_st) {
+	public function addNotice($us_nu, $no_co, $no_st) {
 		$data ['us_nu'] = $us_nu;
-		$data ['no_ty'] = $no_ty;
 		$data ['no_co'] = $no_co;
 		$data ['no_st'] = $no_st;
 		return $this->add ( $data );

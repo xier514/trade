@@ -5,9 +5,9 @@ namespace Home\Model;
 use Think\Model;
 
 class CollectModel extends Model {
-	public function addCollect($us_nu, $re_nu) {
+	public function addCollect($us_nu, $bo_nu) {
 		$data ['us_nu'] = $us_nu;
-		$data ['re_nu'] = $re_nu;
+		$data ['bo_nu'] = $bo_nu;
 		return $this->add ( $data );
 	}
 	public function deleteCollect($co_nu) {

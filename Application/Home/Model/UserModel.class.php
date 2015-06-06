@@ -8,17 +8,17 @@ class UserModel extends Model {
 	public function reg($us_id, $us_pw) {
 		$data ['us_id'] = $us_id;
 		$data ['us_pw'] = md5 ( $us_pw );
+		$data ['us_ty'] = 0;
 		$this->add ( $data );
 	}
-	public function addUserData($us_na, $us_ca, $us_ty, $us_st, $us_ph, $us_wx, $us_qq, $us_em, $us_ad) {
+	public function addUserData($us_na, $us_ph, $us_wx, $us_qq, $us_em, $us_ca, $us_ad) {
+		$data ['us_ty'] = 1;
 		$data ['us_na'] = $us_na;
-		$data ['us_ca'] = $us_ca;
-		$data ['us_ty'] = $us_ty;
-		$data ['us_st'] = $us_st;
 		$data ['us_ph'] = $us_ph;
 		$data ['us_wx'] = $us_wx;
 		$data ['us_qq'] = $us_qq;
 		$data ['us_em'] = $us_em;
+		$data ['us_ca'] = $us_ca;
 		$data ['us_ad'] = $us_ad;
 		return $this->add ( $data );
 	}
@@ -29,10 +29,6 @@ class UserModel extends Model {
 		$condition ['us_nu'] = $us_nu;
 		return $this->where ( $condition )->save ( $data );
 	}
-	public function setUserState($us_nu, $us_st) {
-		$condition ['us_nu'] = $us_nu;
-		$this->where ( $condition )->setField ( 'us_st', $us_st );
-	}
 	public function getUser($us_nu) {
 		$condition ['us_nu'] = $us_nu;
 		return $this->where ( $condition )->limit ( 1 )->select ();
@@ -40,9 +36,9 @@ class UserModel extends Model {
 	public function getAllUser($page = 1) {
 		return $this->page ( $page, 10 )->select ();
 	}
-	public function getFreezingUser($page = 1) {
-		$condition ['us_st'] = 1;
-		return $this->where ( $condition )->page ( $page, 10 )->select ();
+	public function getSaleDeal($us_nu, $page = 1) {
+		$condition ['us_nu'] = $us_nu;
+		return $this->where ( $condition )->join ( 'book ON user.us_nu = book.us_nu' )->join ( 'deal ON book.bo_nu = deal.bo_nu' )->page ( $page, 10 )->select ();
 	}
 	public function log($us_id, $us_pw) {
 		$condition ['us_id'] = $us_id;
