@@ -44,7 +44,7 @@ class BookModel extends Model {
 	public function searchBooksList($keyword, $page = 1) {
 		$map ['bo_na'] = array (
 				'like',
-				'\%' . $keyword . '\%' 
+				'%' . $keyword . '%' 
 		);
 		return $this->where ( $map )->page ( $page, 10 )->select ();
 	}

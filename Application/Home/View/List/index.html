@@ -62,16 +62,18 @@
 		<!-- Breadcrumb 导航-->
 		<div class="breadcrumb">
 			<a href="__APP__">广工二手书网</a> <span>></span>
-			<?php if($typeDetail) echo '<a href="__APP__/home/detail/index/">教材</a><span class="current"><span>></span>'.$typeDetail.'</span>'; else echo '<span class="current">教材</span>'; ?>
+			<?php if($typeDetail) echo '<a href="__APP__/home/List/index/'.$type['ty_nu'].'">'.$type['ty_na'].'</a><span class="current"><span>></span>'.$typeDetail.'</span>'; else echo '<span class="current">'.$type['ty_na'].'</span>'; ?>
 		</div>
 		<div class="aside fl">
 			<div class="sort_box">
 				<h3>图书</h3>
 				<ul>
 					<li class="on"><span class="m"></span> <a
-						href="__APP__/home/detail/index/" class="t">教材</a>
+						href="__APP__/home/List/index/" class="t">
+							<?php echo $type['ty_na']; ?>
+					</a>
 						<div class="link">
-							<?php foreach($type as $k=>$v){ if($v['ty_su'] != $typeDetail) echo '<span><a href="__APP__/home/detail/index/'.$v['ty_nu'].'">'.$v['ty_su'].'</a></span>'; else echo '<span><a href="__APP__/home/detail/index/'.$v['ty_nu'].'" class="now">'.$v['ty_su'].'</a></span>';} ?>
+							<?php foreach($subtype as $k=>$v){if($v['su_na'] != $typeDetail){ echo '<span><a href="__APP__/home/List/index/'.$v['ty_nu'].'/'.$v['su_nu'].'">'.$v['su_na'].'</a></span>';}else{ echo '<span><a href="__APP__/home/List/index/'.$v['ty_nu'].'/'.$v['su_nu'].'" class="now">'.$v['su_na'].'</a></span>';}} ?>
 						</div></li>
 				</ul>
 			</div>
@@ -134,7 +136,7 @@
 					<div class="inner">
 						<div class="photo">
 							<a href="#"><img
-								src="__PUBLIC__/images/book/<?php echo $v['bo_pa']; ?>"
+								src="__PUBLIC__/images/book/<?php echo $v['bo_co']; ?>"
 								height="150" width="150" alt="" /></a>
 						</div>
 						<p class="title">
@@ -151,7 +153,9 @@
 						<div class="buy_col">
 							<a class="buy" href="#"></a> <a class="collection" href="#"></a>
 						</div>
-						<div class="price">￥17.00</div>
+						<div class="price">
+							<?php echo $v['bo_pr'].' 元'; ?>
+						</div>
 					</div>
 				</li>
 				<?php } ?>

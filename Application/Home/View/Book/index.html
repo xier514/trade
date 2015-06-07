@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>广工二手书网</title>
+<link href="__PUBLIC__/css/reset.css" rel="stylesheet">
+<link href="__PUBLIC__/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="headerBar">
+		<!-- 顶部导航 -->
+		<div class="topBar">
+			<div class="comWidth">
+				<div class="leftArea">
+					欢迎来广工二手书网！ &nbsp; <a href="__APP__/home/Login">登录</a> <a
+						href="__APP__/home/Register">免费注册</a>
+				</div>
+				<div class="rightArea">
+					<ul>
+						<li><a href="#"><i class="shopCar"></i>购物车</a></li>
+						<li><a href="#">收藏夹</a></li>
+						<li><a href="#">个人中心</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 搜索栏 -->
+		<div class="logoBar comWidth">
+			<div class="logo fl">
+				<a href="__APP__"><img src="__PUBLIC__/images/logo.png"
+					alt="广工二手书网"></a>
+			</div>
+			<div class="searchBox fl">
+				<form action="">
+					<input type="text" class="search_text"> <input
+						type="button" class="search_btn" value="搜索"> <a href="#"
+						class="senior-search">高级搜索</a>
+				</form>
+			</div>
+			<div class="qrcode fr">
+				<a href="#"><img src="__PUBLIC__/images/erweima.png" alt=""></a>
+			</div>
+		</div>
+		<!-- 页面导航 -->
+		<div class="nav_top">
+			<div class="comWidth">
+				<ul>
+					<li class="all"><span>全部商品分类</span><i></i></li>
+					<li><a href="__APP__">首页</a></li>
+					<li><a href="#">书店区</a></li>
+					<li><a href="#">资讯</a></li>
+					<li><a href="#">社区</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="content comWidth">
+		<!-- Breadcrumb 导航-->
+		<div class="breadcrumb">
+			<a href="__APP__">广工二手书网</a> <span>></span>
+			<?php echo '<a href="__APP__/home/List/index/'.$type['ty_nu'].'">'.$type['ty_na'].'</a>'; ?>
+			<span>></span>
+			<?php echo '<a href="__APP__/home/List/index/'.$type['ty_nu'].'/'.$typeDetail['su_nu'].'">'.$typeDetail['su_na'].'</a>'; ?>
+			<span>></span><span class="current"> <?php echo $book['bo_na'] ?>
+			</span>
+		</div>
+		<div class="aside fl">
+			<div class="sort_box">
+				<h3>图书</h3>
+				<ul>
+					<li class="on"><span class="m"></span> <a
+						href="__APP__/home/List/index/" class="t"> <?php echo $type['ty_na']; ?>
+					</a>
+						<div class="link">
+							<?php foreach($subtype as $k=>$v){if($v['su_na'] != $typeDetail['su_na']){ echo '<span><a href="__APP__/home/List/index/'.$v['ty_nu'].'/'.$v['su_nu'].'">'.$v['su_na'].'</a></span>';}else{ echo '<span><a href="__APP__/home/List/index/'.$v['ty_nu'].'/'.$v['su_nu'].'" class="now">'.$v['su_na'].'</a></span>';}} ?>
+						</div></li>
+				</ul>
+			</div>
+			<div class="hot_box">
+				<h3>热卖商品</h3>
+				<ul>
+					<li><a href="#" class="pic"><img
+							src="__PUBLIC__/images/book/hot-1-1.jpg" alt="" /></a>
+						<p class="data">
+							<a href="#">成大事者不纠结</a>
+						</p>
+						<p class="author_a">罗振宇</p></li>
+				</ul>
+			</div>
+		</div>
+		<div class="good_in fl">
+			<div class="photo fl">
+				<img src="__PUBLIC__/images/book/<?php echo $book['bo_co'] ?>"
+					alt="" />
+			</div>
+			<div class="show_info fl">
+				<div class="book_in">
+					<h1>
+						<?php echo $book['bo_na'] ?>
+					</h1>
+					<div class="m_r6 clear">
+						<div class="fl show_info">作者：</div>
+						<div class="fl">
+							<?php echo $book['bo_au'] ?>
+						</div>
+					</div>
+					<div class="m_r6  clear">
+						<div class="fl show_info">出版社：</div>
+						<div class="fl">
+							<?php echo $book['bo_pu'] ?>
+						</div>
+					</div>
+					<div class="m_r6 clear">
+						<div class="fl show_info">版次：</div>
+						<div class="fl">
+							<?php echo '第 '.$book['bo_or'].' 版'; ?>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="clear m_r6">
+						<div class="fl show_info">售价：</div>
+						<div class="fl price">
+							<?php echo $book['bo_pr'].' 元'; ?>
+						</div>
+					</div>
+					<div class="clear m_r6">
+						<div class="fl show_info">余量：</div>
+						<div class="fl">
+							<?php echo $book['bo_le'].' 本'; ?>
+						</div>
+					</div>
+					<div class="clear m_r6">
+						<div class="fl show_info">新旧程度：</div>
+						<div class="fl">
+							<?php echo $book['bo_de'].' 成新'; ?>
+						</div>
+					</div>
+					<div class="clear m_r6">
+						<div class="fl show_info">状态：</div>
+						<div class="fl">
+							<?php if($book['bo_st']) echo '正在出售'; else echo '已关闭'; ?>
+						</div>
+					</div>
+				</div>
+				<div class="btn_p">
+					<div class="buy">
+						<a href=""></a>
+					</div>
+					<div class="collect">
+						<a href=""></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+</body>
+</html>

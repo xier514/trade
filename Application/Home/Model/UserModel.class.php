@@ -44,7 +44,7 @@ class UserModel extends Model {
 		$condition ['us_id'] = $us_id;
 		$data = $this->where ( $condition )->limit ( 1 )->select ();
 		if (isset ( $data [0] ) && $data [0] ['us_pw'] == md5 ( $us_pw )) {
-			return true;
+			return $data [0];
 		} else {
 			return false;
 		}
