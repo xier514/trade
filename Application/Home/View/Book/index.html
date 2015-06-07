@@ -13,14 +13,13 @@
 		<div class="topBar">
 			<div class="comWidth">
 				<div class="leftArea">
-					欢迎来广工二手书网！ &nbsp; <a href="__APP__/home/Login">登录</a> <a
-						href="__APP__/home/Register">免费注册</a>
+					欢迎来广工二手书网！ &nbsp;
+					<?php if(!session('us_id')) echo '<a href="__APP__/home/Login">登录</a> <a href="__APP__/home/Register">免费注册</a>'; else echo session('us_id'); ?>
 				</div>
 				<div class="rightArea">
 					<ul>
-						<li><a href="#"><i class="shopCar"></i>购物车</a></li>
-						<li><a href="#">收藏夹</a></li>
-						<li><a href="#">个人中心</a></li>
+						<li><a href="__APP__/home/Collection">收藏夹</a></li>
+						<li><a href="__APP__/home/Center">个人中心</a></li>
 					</ul>
 				</div>
 			</div>
@@ -32,10 +31,9 @@
 					alt="广工二手书网"></a>
 			</div>
 			<div class="searchBox fl">
-				<form action="">
-					<input type="text" class="search_text"> <input
-						type="button" class="search_btn" value="搜索"> <a href="#"
-						class="senior-search">高级搜索</a>
+				<form method="get" action="__APP__/home/Search/search">
+					<input type="text" class="search_text" name="keyword"> <input
+						type="submit" class="search_btn" value="搜索">
 				</form>
 			</div>
 			<div class="qrcode fr">
@@ -70,7 +68,8 @@
 				<h3>图书</h3>
 				<ul>
 					<li class="on"><span class="m"></span> <a
-						href="__APP__/home/List/index/" class="t"> <?php echo $type['ty_na']; ?>
+						href="__APP__/home/List/index/<?php echo $type['ty_nu']; ?>"
+						class="t"> <?php echo $type['ty_na']; ?>
 					</a>
 						<div class="link">
 							<?php foreach($subtype as $k=>$v){if($v['su_na'] != $typeDetail['su_na']){ echo '<span><a href="__APP__/home/List/index/'.$v['ty_nu'].'/'.$v['su_nu'].'">'.$v['su_na'].'</a></span>';}else{ echo '<span><a href="__APP__/home/List/index/'.$v['ty_nu'].'/'.$v['su_nu'].'" class="now">'.$v['su_na'].'</a></span>';}} ?>

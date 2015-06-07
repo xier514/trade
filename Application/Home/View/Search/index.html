@@ -59,8 +59,7 @@
 	<div class="content comWidth">
 		<!-- Breadcrumb 导航-->
 		<div class="breadcrumb">
-			<a href="__APP__">广工二手书网</a> <span>></span>
-			<?php if($typeDetail['su_na']) echo '<a href="__APP__/home/List/index/'.$type['ty_nu'].'">'.$type['ty_na'].'</a><span class="current"><span>></span>'.$typeDetail['su_na'].'</span>'; else echo '<span class="current">'.$type['ty_na'].'</span>'; ?>
+			<a href="__APP__">广工二手书网</a> <span>></span> 搜索结果
 		</div>
 		<div class="aside fl">
 			<div class="sort_box">
@@ -71,7 +70,7 @@
 						class="t"> <?php echo $type['ty_na']; ?>
 					</a>
 						<div class="link">
-							<?php foreach($subtype as $k=>$v){if($v['su_na'] != $typeDetail['su_na']){ echo '<span><a href="__APP__/home/List/index/'.$v['ty_nu'].'/'.$v['su_nu'].'">'.$v['su_na'].'</a></span>';}else{ echo '<span><a href="__APP__/home/List/index/'.$v['ty_nu'].'/'.$v['su_nu'].'" class="now">'.$v['su_na'].'</a></span>';}} ?>
+							<?php foreach($subtype as $k=>$v){echo '<span><a href="__APP__/home/List/index/'.$v['ty_nu'].'/'.$v['su_nu'].'">'.$v['su_na'].'</a></span>';} ?>
 						</div></li>
 				</ul>
 			</div>
@@ -113,21 +112,18 @@
 				<ul>
 					<?php if($order == 0) echo '<li class="on">';else echo '<li>';?>
 					<div name="mo">
-						<a
-							href="__APP__/home/List/index/<?php echo $type['ty_nu'].'/'.$su_nu.'/'.'0' ?>">默认排序</a>
+						<a href="__APP__/home/Search/index/<?php echo $keyword.'/'.'0' ?>">默认排序</a>
 					</div>
 					</li>
 					<?php if($order == 1) echo '<li class="on">';else echo '<li>';?>
 					<div name="jg">
-						<a
-							href="__APP__/home/List/index/<?php echo $type['ty_nu'].'/'.$su_nu.'/'.'1' ?>">价格<span
+						<a href="__APP__/home/Search/index/<?php echo $keyword.'/'.'1' ?>">价格<span
 							class="icon icon_t"></span></a>
 					</div>
 					</li>
 					<?php if($order == 2) echo '<li class="on">';else echo '<li>';?>
 					<div name="xj">
-						<a
-							href="__APP__/home/List/index/<?php echo $type['ty_nu'].'/'.$su_nu.'/'.'2' ?>">新旧程度<span
+						<a href="__APP__/home/Search/index/<?php echo $keyword.'/'.'2' ?>">新旧程度<span
 							class="icon"></span></a>
 					</div>
 					</li>

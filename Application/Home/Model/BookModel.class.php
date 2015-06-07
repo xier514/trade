@@ -37,15 +37,15 @@ class BookModel extends Model {
 		$condition ['bo_nu'] = $bo_nu;
 		return $this->where ( $condition )->limit ( 1 )->select ();
 	}
-	public function getSubBooksList($su_nu, $page = 1) {
+	public function getSubBooksList($su_nu, $order, $page = 1) {
 		$condition ['su_nu'] = $su_nu;
-		return $this->where ( $condition )->page ( $page, 10 )->select ();
+		return $this->where ( $condition )->order ( $order )->page ( $page, 10 )->select ();
 	}
-	public function searchBooksList($keyword, $page = 1) {
+	public function searchBooksList($keyword, $order, $page = 1) {
 		$map ['bo_na'] = array (
 				'like',
 				'%' . $keyword . '%' 
 		);
-		return $this->where ( $map )->page ( $page, 10 )->select ();
+		return $this->where ( $map )->order ( $order )->page ( $page, 10 )->select ();
 	}
 }

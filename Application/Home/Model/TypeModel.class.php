@@ -9,8 +9,8 @@ class TypeModel extends Model {
 		$condition ['ty_nu'] = $ty_nu;
 		return $this->where ( $condition )->select ();
 	}
-	public function getBooksList($ty_nu, $page = 1) {
+	public function getBooksList($ty_nu, $order, $page = 1) {
 		$condition ['type.ty_nu'] = $ty_nu;
-		return $this->where ( $condition )->join ( 'subtype ON type.ty_nu = subtype.ty_nu' )->join ( 'book ON subtype.su_nu = book.su_nu' )->page ( $page, 10 )->select ();
+		return $this->where ( $condition )->order ( $order )->join ( 'subtype ON type.ty_nu = subtype.ty_nu' )->join ( 'book ON subtype.su_nu = book.su_nu' )->page ( $page, 10 )->select ();
 	}
 }
