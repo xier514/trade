@@ -1691,7 +1691,7 @@
 /* 8.1商品信息
 ---------------------------------------------------------------------- */
 .goods_mes {
-    height:810px;
+    height:900px;
     width:900px;
     margin:0 auto;
     padding: 0 20px;
@@ -1749,7 +1749,9 @@ div.info_box {
     font-family: simsun;
     font-size: 14px;
     color: #ff4e00;
+    float:left;
     vertical-align: top;
+    margin-top:5px;
     margin-right: 10px;
 }
 

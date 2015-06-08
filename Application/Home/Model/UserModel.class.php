@@ -9,7 +9,7 @@ class UserModel extends Model {
 		$data ['us_id'] = $us_id;
 		$data ['us_pw'] = md5 ( $us_pw );
 		$data ['us_ty'] = 0;
-		$this->add ( $data );
+		return $this->add ( $data );
 	}
 	public function addUserData($us_nu, $us_na, $us_ph, $us_wx, $us_qq, $us_em, $us_ca, $us_ad) {
 		$condition ['us_nu'] = $us_nu;

@@ -37,7 +37,6 @@ $(function() {
                     $.getJSON('Register/idConflict/' + use.val(), function(data) {
                         if(data){
                             use_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>账号名已存在').show();
-                            use_ok.hide();
                             use_test = true;
                         }
                         else {
@@ -132,12 +131,12 @@ $(function() {
                     if(data) {
                         vco_wrong.hide();
                         vco_ok.show();
-                        vco_test = true;
+                        vco_test = false;
                     }
                     else {
                         vco_ok.hide();
                         vco_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>验证码错误').show();
-                        vco_test = false;
+                        vco_test = true;
                     }
                 });
             }
@@ -168,6 +167,6 @@ $(function() {
         if(use_test || pas_test || repas_test || vco_test ) {
             return false;
         }
-        return true;
+        $("#register").submit();
     })
 })

@@ -7,9 +7,12 @@ use Think\Controller;
 class SaleController extends Controller {
 	public function index() {
 		if (session ( 'us_nu' )) {
-			$this->assign ( 'type', D ( 'Type' )->getAllType () );
-			$this->assign ( 'subtype', D ( 'Subtype' )->getAllSubtype () );
-			$this->display ();
+			if (session ( 'us_ty' )) {
+				$this->assign ( 'subtype', D ( 'Subtype' )->getAllSubtype () );
+				$this->display ();
+			} else {
+				$this->error ( '您的资料尚未完善', U ( 'Perfect/index' ) );
+			}
 		} else {
 			$this->error ( '你没有登录', U ( 'Login/index' ) );
 		}
