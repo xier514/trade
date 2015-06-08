@@ -17,7 +17,7 @@
 			<div class="comWidth">
 				<div class="leftArea">
 					欢迎来<a href="__APP__">广工二手书网</a>！ &nbsp;
-					<?php if(!session('us_id')) echo '<a href="__APP__/home/Login">登录</a> <a href="__APP__/home/Register">免费注册</a>'; else echo session('us_id'); ?>
+					<?php if(!session('us_id')) echo '<a href="__APP__/home/Login">登录</a> <a href="__APP__/home/Register">免费注册</a>'; else echo session('us_id').' '.'<a href="__APP__/home/Login/logout">退出登录</a>'; ?>
 				</div>
 				<div class="rightArea">
 					<ul>
@@ -65,21 +65,14 @@
 			<div class="sideMenu">
 				<div class="con s_head">图书分类</div>
 				<div class="con s_body">
+					<?php foreach($type as $k => $v){ ?>
 					<div class="level-one">
-						<span>教科书</span>
+						<a href="__APP__/home/List/index/<?php echo $v['ty_nu'] ?>"><span>
+								<?php echo $v['ty_na'] ?>
+						</span></a>
 					</div>
-					<div class="level-one">
-						<span>工具书</span>
-					</div>
-					<div class="level-one">
-						<span>小说</span>
-					</div>
-					<div class="level-one">
-						<span>文艺</span>
-					</div>
-					<div class="level-one last">
-						<span>科技</span>
-					</div>
+					<?php } ?>
+					<div class="level-one last"></div>
 				</div>
 			</div>
 		</div>
@@ -120,114 +113,74 @@
 						<ul>
 							<li class="rollitem">
 								<ul class="product">
-									<li><a href=""><img src="__PUBLIC__/images/book/1.jpg"
-											alt=""></a>
+									<?php foreach($bookList1 as $k => $v){ ?>
+									<li><a
+										href="__APP__/home/Book/index/<?php echo $v['bo_nu']?>"><img
+											src="__PUBLIC__/images/book/<?php echo $v['bo_co'] ?>" alt=""
+											height="150" width="150"></a>
 										<p class="name">
-											<a href="">千禧年系列</a>
+											<a href="__APP__/home/Book/index/<?php echo $v['bo_nu']?>">
+												<?php echo $v['bo_na'] ?>
+											</a>
 										</p>
-										<p class="author">斯蒂格·拉森</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/2.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">于丹字解人生</a>
-										</p>
-										<p class="author">于丹</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/3.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">奔跑吧 兄弟</a>
-										</p>
-										<p class="author">《奔跑吧，兄弟》栏</p></li>
-									<li><a href=""><img
-											src="__PUBLIC__/images/book/11.jpg" alt=""></a>
-										<p class="name">
-											<a href="">就当一次路过</a>
-										</p>
-										<p class="author">这么远那么近等</p></li>
+										<p class="author">
+											<?php echo $v['bo_au'] ?>
+										</p></li>
+									<?php } ?>
 								</ul>
 							</li>
 							<li class="rollitem">
 								<ul class="product">
-									<li><a href=""><img src="__PUBLIC__/images/book/4.jpg"
-											alt=""></a>
+									<?php foreach($bookList2 as $k => $v){ ?>
+									<li><a
+										href="__APP__/home/Book/index/<?php echo $v['bo_nu']?>"><img
+											src="__PUBLIC__/images/book/<?php echo $v['bo_co'] ?>" alt=""
+											height="150" width="150"></a>
 										<p class="name">
-											<a href="">替这个残酷世界给你的一记温柔耳光</a>
+											<a href="__APP__/home/Book/index/<?php echo $v['bo_nu']?>">
+												<?php echo $v['bo_na'] ?>
+											</a>
 										</p>
-										<p class="author">小川叔</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/5.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">长喜英语:大学英语四级考试真题全解</a>
-										</p>
-										<p class="author">王长喜</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/6.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">空间创意4D游戏书：洞</a>
-										</p>
-										<p class="author">[法] 埃尔维·杜莱</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/9.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">最寒冷的冬天Ⅳ：日本人眼中的朝鲜战争</a>
-										</p>
-										<p class="author">【日】儿岛襄</p></li>
+										<p class="author">
+											<?php echo $v['bo_au'] ?>
+										</p></li>
+									<?php } ?>
 								</ul>
 							</li>
 							<li class="rollitem">
 								<ul class="product">
-									<li><a href=""><img src="__PUBLIC__/images/book/7.jpg"
-											alt=""></a>
+									<?php foreach($bookList3 as $k => $v){ ?>
+									<li><a
+										href="__APP__/home/Book/index/<?php echo $v['bo_nu']?>"><img
+											src="__PUBLIC__/images/book/<?php echo $v['bo_co'] ?>" alt=""
+											height="150" width="150"></a>
 										<p class="name">
-											<a href="">哈考特儿童英语分级读物 入门级</a>
+											<a href="__APP__/home/Book/index/<?php echo $v['bo_nu']?>">
+												<?php echo $v['bo_na'] ?>
+											</a>
 										</p>
-										<p class="author">（美）哈瑞斯</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/8.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">最强大脑：陈俊生快速记忆训练手册</a>
-										</p>
-										<p class="author">陈俊生</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/9.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">最寒冷的冬天Ⅳ：日本人眼中的朝鲜战争</a>
-										</p>
-										<p class="author">【日】儿岛襄</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/6.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">空间创意4D游戏书：洞</a>
-										</p>
-										<p class="author">[法] 埃尔维·杜莱</p></li>
+										<p class="author">
+											<?php echo $v['bo_au'] ?>
+										</p></li>
+									<?php } ?>
 								</ul>
 							</li>
 							<li class="rollitem">
 								<ul class="product">
-									<li><a href=""><img
-											src="__PUBLIC__/images/book/10.jpg" alt=""></a>
+									<?php foreach($bookList4 as $k => $v){ ?>
+									<li><a
+										href="__APP__/home/Book/index/<?php echo $v['bo_nu']?>"><img
+											src="__PUBLIC__/images/book/<?php echo $v['bo_co'] ?>" alt=""
+											height="150" width="150"></a>
 										<p class="name">
-											<a href="">武则天</a>
+											<a href="__APP__/home/Book/index/<?php echo $v['bo_nu']?>">
+												<?php echo $v['bo_na'] ?>
+											</a>
 										</p>
-										<p class="author">冉平</p></li>
-									<li><a href=""><img
-											src="__PUBLIC__/images/book/11.jpg" alt=""></a>
-										<p class="name">
-											<a href="">就当一次路过</a>
-										</p>
-										<p class="author">这么远那么近等</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/3.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">长喜英语:大学英语六级考试真题全解</a>
-										</p>
-										<p class="author">王长喜</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/6.jpg"
-											alt=""></a>
-										<p class="name">
-											<a href="">空间创意4D游戏书：洞</a>
-										</p>
-										<p class="author">[法] 埃尔维·杜莱</p></li>
+										<p class="author">
+											<?php echo $v['bo_au'] ?>
+										</p></li>
+									<?php } ?>
 								</ul>
 							</li>
 						</ul>

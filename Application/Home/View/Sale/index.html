@@ -16,7 +16,7 @@
 			<div class="comWidth">
 				<div class="leftArea">
 					欢迎来<a href="__APP__">广工二手书网</a>！ &nbsp;
-					<?php if(!session('us_id')) echo '<a href="__APP__/home/Login">登录</a> <a href="__APP__/home/Register">免费注册</a>'; else echo session('us_id'); ?>
+					<?php if(!session('us_id')) echo '<a href="__APP__/home/Login">登录</a> <a href="__APP__/home/Register">免费注册</a>'; else echo session('us_id').' '.'<a href="__APP__/home/Login/logout">退出登录</a>'; ?>
 				</div>
 				<div class="rightArea">
 					<ul>

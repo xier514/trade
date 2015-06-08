@@ -48,4 +48,7 @@ class BookModel extends Model {
 		);
 		return $this->where ( $map )->order ( $order )->page ( $page, 10 )->select ();
 	}
+	public function getBooks($page = 1) {
+		return $this->page ( $page, 4 )->order ( 'bo_nu desc' )->select ();
+	}
 }

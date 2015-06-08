@@ -36,4 +36,8 @@ class LoginController extends Controller {
 			$this->error ( '非法请求' );
 		}
 	}
+	public function logout() {
+		session ( null );
+		$this->success ( '成功退出登录', U ( 'Login/index' ) );
+	}
 }
