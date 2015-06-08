@@ -3,9 +3,8 @@ require.config({
         "jquery":"jquery"
     },
     shim: {
-        "info_placeholder":  ["jquery"],
-        "info_submit":  ["jquery"]
+        "info_placeholder":  ["jquery"]
     }
 })
 
-require(["info_placeholder","info_submit"])
+require(["info_placeholder"])

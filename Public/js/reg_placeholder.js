@@ -19,6 +19,10 @@ $(function() {
     var strong = /^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&*]+$)(?![\d!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/;
     var account = /^[a-zA-Z]\w{5,19}$/;
 
+    var use_test = true;
+    var pas_test = true;
+    var repas_test = true;
+    var vco_test = true;
     //账号
     use.focus(function () {
             use_wrong.removeClass('cue').addClass('warm').html('6-20个字符,可由英文、数字及下划线组成，必须以英文开头').css("display", "inline-block")
@@ -27,21 +31,26 @@ $(function() {
             if(this.value) {
                 if(!account.test(use.val())) {
                     use_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>格式不正确，请重新输入').show();
+                    use_test = true;
                 }
                 else {
                     $.getJSON('Register/idConflict/' + use.val(), function(data) {
                         if(data){
                             use_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>账号名已存在').show();
+                            use_ok.hide();
+                            use_test = true;
                         }
                         else {
                             use_ok.show();
                             use_wrong.hide();
+                            use_test = false;
                         }
                     });
                 }
             }
             else {
                 use_wrong.hide();
+                use_test = false;
             }
     });
 
@@ -55,18 +64,22 @@ $(function() {
                 if(this.value.length < 6 || this.value.length > 20) {
                     pas_strong.hide();
                     pas_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>密码长度6-20个字符,请重新输入').show();
+                    pas_test = true;
                 }
                 else if(this.value.indexOf(' ') > -1) {
                     pas_strong.hide();
                     pas_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>密码不能包含“空格”,请重新输入').show();
+                    pas_test = true;
                 }
                 else {
                     pas_wrong.hide();
                     pas_strong.show();
+                    pas_test = false;
                 }
             }
             else {
                 $('#spn_password_wrong').hide();
+                pas_test = true;
             }
         }
     ).keyup(function(event){
@@ -95,13 +108,16 @@ $(function() {
     ).blur(function () {
             if(pas.val() && repas.val() != pas.val() || repas.val() && !pas.val()) {
                 repas_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>两次密码不相同，请重新输入').show();
+                repas_test = true;
             }
             else if ( (repas.val() == pas.val()) && pas.val() && ( pas.val().indexOf(' ') == -1)){
                 repas_wrong.hide();
                 repas_ok.show();
+                repas_test = false;
             }
            else{
                 repas_wrong.hide();
+                repas_test = true;
             }
         });
 
@@ -116,15 +132,18 @@ $(function() {
                     if(data) {
                         vco_wrong.hide();
                         vco_ok.show();
+                        vco_test = true;
                     }
                     else {
-
+                        vco_ok.hide();
                         vco_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>验证码错误').show();
+                        vco_test = false;
                     }
                 });
             }
             else {
                 vco_wrong.hide();
+                vco_test = true;
             }
         });
 
@@ -132,15 +151,23 @@ $(function() {
     $('#reg_btn').click(function (){
         if( ! use.val() ) {
             use_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>账号不能为空').show();
+            return false;
         }
         if( ! pas.val() ) {
             pas_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>密码不能为空').show();
+            return false;
         }
         if( ! repas.val() ) {
             repas_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>确认密码不能为空').show();
+            return false;
         }
         if( ! vco.val() ) {
             vco_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>验证码不能为空').show();
+            return false;
         }
+        if(use_test || pas_test || repas_test || vco_test ) {
+            return false;
+        }
+        return true;
     })
 })

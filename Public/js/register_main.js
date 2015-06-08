@@ -10,4 +10,4 @@ require.config({
     }
 })
 
-require(["reg_placeholder","reg_submit"])
+require(["reg_placeholder"])
