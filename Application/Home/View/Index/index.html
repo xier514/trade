@@ -6,7 +6,8 @@
 <title>广工二手书网</title>
 <link href="__PUBLIC__/css/reset.css" rel="stylesheet">
 <link href="__PUBLIC__/css/style.css" rel="stylesheet">
-<script src="__PUBLIC__/js/require.js" data-main="__PUBLIC__/js/main" defer async="true"></script>
+<script src="__PUBLIC__/js/require.js" data-main="__PUBLIC__/js/main"
+	defer async="true"></script>
 </head>
 <body>
 
@@ -15,13 +16,14 @@
 		<div class="topBar">
 			<div class="comWidth">
 				<div class="leftArea">
-					欢迎来<a href="__APP__">广工二手书网</a>！ &nbsp; <a href="__APP__/home/Login">登录</a> <a
-						href="__APP__/home/Register">免费注册</a>
+					欢迎来<a href="__APP__">广工二手书网</a>！ &nbsp;
+					<?php if(!session('us_id')) echo '<a href="__APP__/home/Login">登录</a> <a href="__APP__/home/Register">免费注册</a>'; else echo session('us_id'); ?>
 				</div>
 				<div class="rightArea">
 					<ul>
-						<li><a href="">收藏夹</a></li>
-						<li><a href="">个人中心</a></li>
+						<li><a href="__APP__/home/Sale">发布二手书</a></li>
+						<li><a href="__APP__/home/Collection">收藏夹</a></li>
+						<li><a href="__APP__/home/Center">个人中心</a></li>
 					</ul>
 				</div>
 			</div>
@@ -29,17 +31,17 @@
 		<!-- 搜索栏 -->
 		<div class="logoBar comWidth">
 			<div class="logo fl">
-				<a href=""><img src="__PUBLIC__/images/logo.png" alt="广工二手书网"></a>
+				<a href="__APP__"><img src="__PUBLIC__/images/logo.png"
+					alt="广工二手书网"></a>
 			</div>
 			<div class="searchBox fl">
-				<form action="">
-					<input type="text" class="search_text"> <input
-						type="button" class="search_btn" value="搜索"> <a href=""
-						class="senior-search">高级搜索</a>
+				<form method="get" action="__APP__/home/Search/search">
+					<input type="text" class="search_text" name="keyword"> <input
+						type="submit" class="search_btn" value="搜索">
 				</form>
 			</div>
 			<div class="qrcode fr">
-				<a href=""><img src="__PUBLIC__/images/erweima.png" alt=""></a>
+				<a href="#"><img src="__PUBLIC__/images/erweima.png" alt=""></a>
 			</div>
 		</div>
 		<!-- 页面导航 -->
@@ -47,10 +49,10 @@
 			<div class="comWidth">
 				<ul>
 					<li class="all"><span>全部商品分类</span><i></i></li>
-					<li><a href="">首页</a></li>
-					<li><a href="">书店区</a></li>
-					<li><a href="">资讯</a></li>
-					<li><a href="">社区</a></li>
+					<li><a href="__APP__">首页</a></li>
+					<li><a href="#">书店区</a></li>
+					<li><a href="#">资讯</a></li>
+					<li><a href="#">社区</a></li>
 				</ul>
 			</div>
 		</div>
@@ -86,9 +88,11 @@
 			<!-- t图片轮播 -->
 			<div id="container">
 				<div id="list">
-					<img src="__PUBLIC__/images/1.jpg" alt=""> <img src="__PUBLIC__/images/2.jpg"
-						alt=""> <img src="__PUBLIC__/images/3.jpg" alt=""> <img
-						src="__PUBLIC__/images/4.jpg" alt=""> <img src="__PUBLIC__/images/5.jpg" alt="">
+					<img src="__PUBLIC__/images/1.jpg" alt=""> <img
+						src="__PUBLIC__/images/2.jpg" alt=""> <img
+						src="__PUBLIC__/images/3.jpg" alt=""> <img
+						src="__PUBLIC__/images/4.jpg" alt=""> <img
+						src="__PUBLIC__/images/5.jpg" alt="">
 				</div>
 				<div id="c-button">
 					<ul id="buttons">
@@ -116,22 +120,26 @@
 						<ul>
 							<li class="rollitem">
 								<ul class="product">
-									<li><a href=""><img src="__PUBLIC__/images/book/1.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/1.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">千禧年系列</a>
 										</p>
 										<p class="author">斯蒂格·拉森</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/2.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/2.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">于丹字解人生</a>
 										</p>
 										<p class="author">于丹</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/3.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/3.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">奔跑吧 兄弟</a>
 										</p>
 										<p class="author">《奔跑吧，兄弟》栏</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/11.jpg" alt=""></a>
+									<li><a href=""><img
+											src="__PUBLIC__/images/book/11.jpg" alt=""></a>
 										<p class="name">
 											<a href="">就当一次路过</a>
 										</p>
@@ -140,22 +148,26 @@
 							</li>
 							<li class="rollitem">
 								<ul class="product">
-									<li><a href=""><img src="__PUBLIC__/images/book/4.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/4.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">替这个残酷世界给你的一记温柔耳光</a>
 										</p>
 										<p class="author">小川叔</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/5.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/5.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">长喜英语:大学英语四级考试真题全解</a>
 										</p>
 										<p class="author">王长喜</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/6.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/6.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">空间创意4D游戏书：洞</a>
 										</p>
 										<p class="author">[法] 埃尔维·杜莱</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/9.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/9.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">最寒冷的冬天Ⅳ：日本人眼中的朝鲜战争</a>
 										</p>
@@ -164,22 +176,26 @@
 							</li>
 							<li class="rollitem">
 								<ul class="product">
-									<li><a href=""><img src="__PUBLIC__/images/book/7.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/7.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">哈考特儿童英语分级读物 入门级</a>
 										</p>
 										<p class="author">（美）哈瑞斯</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/8.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/8.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">最强大脑：陈俊生快速记忆训练手册</a>
 										</p>
 										<p class="author">陈俊生</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/9.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/9.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">最寒冷的冬天Ⅳ：日本人眼中的朝鲜战争</a>
 										</p>
 										<p class="author">【日】儿岛襄</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/6.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/6.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">空间创意4D游戏书：洞</a>
 										</p>
@@ -188,22 +204,26 @@
 							</li>
 							<li class="rollitem">
 								<ul class="product">
-									<li><a href=""><img src="__PUBLIC__/images/book/10.jpg" alt=""></a>
+									<li><a href=""><img
+											src="__PUBLIC__/images/book/10.jpg" alt=""></a>
 										<p class="name">
 											<a href="">武则天</a>
 										</p>
 										<p class="author">冉平</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/11.jpg" alt=""></a>
+									<li><a href=""><img
+											src="__PUBLIC__/images/book/11.jpg" alt=""></a>
 										<p class="name">
 											<a href="">就当一次路过</a>
 										</p>
 										<p class="author">这么远那么近等</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/3.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/3.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">长喜英语:大学英语六级考试真题全解</a>
 										</p>
 										<p class="author">王长喜</p></li>
-									<li><a href=""><img src="__PUBLIC__/images/book/6.jpg" alt=""></a>
+									<li><a href=""><img src="__PUBLIC__/images/book/6.jpg"
+											alt=""></a>
 										<p class="name">
 											<a href="">空间创意4D游戏书：洞</a>
 										</p>
@@ -241,8 +261,8 @@
 												<a href="">罗辑思维 : 成大事者不纠结</a>
 											</p></li>
 										<li class="item line1" type="item"><span>1</span> <a
-											href="" class="img"><img src="__PUBLIC__/images/book/hot-1-1.jpg"
-												alt=""></a>
+											href="" class="img"><img
+												src="__PUBLIC__/images/book/hot-1-1.jpg" alt=""></a>
 											<p class="name">
 												<a href="">罗辑思维 : 成大事者不纠结</a>
 											</p>
@@ -368,8 +388,8 @@
 												<a href="">罗辑思维 : 成大事者不纠结</a>
 											</p></li>
 										<li class="item line1" type="item"><span>1</span> <a
-											href="" class="img"><img src="__PUBLIC__/images/book/hot-2-1.jpg"
-												alt=""></a>
+											href="" class="img"><img
+												src="__PUBLIC__/images/book/hot-2-1.jpg" alt=""></a>
 											<p class="name">
 												<a href="">罗辑思维 : 成大事者不纠结</a>
 											</p>

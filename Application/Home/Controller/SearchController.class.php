@@ -25,7 +25,7 @@ class SearchController extends Controller {
 			}
 			$this->display ( 'index' );
 		} else {
-			$this->error ( '非法操作' );
+			$this->error ( '请输入关键字' );
 		}
 	}
 	public function search() {

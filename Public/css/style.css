@@ -32,6 +32,8 @@
             7.2操作
             7.3表头
             7.4收藏信息
+        8.发布商品
+            8.1商品信息
     -------------------
     
     COLOURS -----------
@@ -650,9 +652,10 @@
 }
 
  #imgvcode {
-     width: 238px;
-     height: 68px;
-     border: solid 1px #eaeaea;;
+     width:108px;
+     height: 37px;
+     border: solid 1px #eaeaea;
+     vertical-align: bottom;
  }
 
 .reg_r .pswState {
@@ -697,7 +700,7 @@
     width: 50px;
 }
 
-/* 3.1注册
+/* 3.1登陆
 ---------------------------------------------------------------------- */
 .login {
     background: #f5f5f5;
@@ -1682,4 +1685,113 @@
     color: #fff;
     padding: 0 10px;
     border-radius: 3px;
+}
+
+/* 8.1商品信息
+---------------------------------------------------------------------- */
+.goods_mes {
+    height:810px;
+    width:900px;
+    margin:0 auto;
+    padding: 0 20px;
+    border: 1px solid #B7B9AC;
+}
+
+.goods_info,.trade_info{
+    float: left;
+}
+
+.fill_info {
+    float: left;
+    height: auto;
+    width: 900px;
+    padding: 0;
+    margin: 3px 0;
+    clear: both;
+    font-family: simsun;
+}
+
+label.info_name{
+    width: 140px;
+    float: left;
+    line-height: 35px;
+    font-size: 14px;
+    text-align: right;
+    position: relative;
+    font-family: Arial;
+}
+
+div.info_box {
+    width: 530px;
+    float: left;
+    line-height: 37px;
+    height: auto;
+
+}
+
+.info_box input {
+    width: 130px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 5px;
+}
+
+.info_box select{
+    height: 25px;
+}
+
+.fill_info textarea {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.fill_info textarea,.info_box select {
+    margin-left: 5px;
+}
+
+.is_star {
+    font-family: simsun;
+    font-size: 14px;
+    color: #ff4e00;
+    vertical-align: top;
+}
+
+.goods_mes h3 {
+    width: 950px;
+    height: 25px;
+    line-height: 25px;
+    border-bottom: 1px solid #e7e7e7;
+    margin: 20px auto;
+    clear: both;
+}
+
+.goods_mes h3 .f_l {
+    border-bottom: 1px solid #bbb;
+    font-family: "Microsoft YaHei";
+    font-size: 18px !important;
+    font-weight: normal !important;
+}
+
+.f_l2 {
+    padding-left: 20px;
+    color: #f60;
+    font-weight: normal;
+}
+
+.info_box .a_service_confirm {
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    background: #f40000;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Microsoft YaHei";
+    color: #fff !important;
+    text-decoration: none !important;
+    border: none;
+    cursor: pointer;
+}
+
+.goods_submit {
+    margin:15px auto 15px 250px;
 }

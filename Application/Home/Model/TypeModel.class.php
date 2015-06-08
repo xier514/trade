@@ -5,6 +5,9 @@ namespace Home\Model;
 use Think\Model;
 
 class TypeModel extends Model {
+	public function getAllType() {
+		return $this->order ( 'ty_nu' )->select ();
+	}
 	public function getType($ty_nu) {
 		$condition ['ty_nu'] = $ty_nu;
 		return $this->where ( $condition )->select ();

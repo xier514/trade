@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/require.js" data-main="js/sell_main" defer async="true"></script>
+</head>
+<body>
+    <div class="headerBar">
+        <!-- 顶部导航 -->
+        <div class="topBar">
+            <div class="comWidth">
+                <div class="leftArea">
+                    欢迎来广工二手书网！ &nbsp;
+                    <a href="login.html">登录</a>
+                    <a href="register.html">免费注册</a>
+                </div>
+                <div class="rightArea">
+                    <ul>
+                        <li><a href=""><i class="shopCar"></i>购物车</a></li>
+                        <li><a href="">收藏夹</a></li>
+                        <li><a href="">个人中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 搜索栏 -->
+        <div class="logoBar comWidth">
+            <div class="logo fl">
+                <a href=""><img src="images/logo.png" alt="广工二手书网"></a>
+            </div>
+            <div class="searchBox fl">
+                <form action="">
+                    <input type="text" class="search_text">
+                    <input type="button" class="search_btn" value="搜索">
+                    <a href="" class="senior-search">高级搜索</a>
+                </form>
+            </div>
+            <div class="qrcode fr">
+                <a href=""><img src="images/erweima.png" alt=""></a>
+            </div>
+        </div>
+        <!-- 页面导航 -->
+        <div class="nav_top">
+            <div class="comWidth">
+                <ul>
+                    <li class="all"><span>全部商品分类</span><i></i></li>
+                    <li><a href="">首页</a></li>
+                    <li><a href="">书店区</a></li>
+                    <li><a href="">资讯</a></li>
+                    <li><a href="">社区</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content comWidth">
+        <div class="goods_mes">
+            <form action="" name="goods">
+                <div class="goods_info">
+                    <h3><span class="f_l">商品信息</span><span class="f_l2">* 为必填项</span></h3>
+                    <div class="fill_info">
+                        <label class="info_name">商品分类：</label><div class="info_box"  id="selectionsPane"><span class="is_star">*</span><select name="style" id="classify"></select> > <select name="color" id="subclass" disabled="disabled"></select></div>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">商品名称：</label><div class="info_box"><span class="is_star">*</span><input type="text" name="goods_name" id="goods_name"/></div>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">作者：</label><div class="info_box"><span class="is_star">*</span><input type="text" name="goods_author" id="goods_author"/></div>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">出版社：</label><div class="info_box"><span class="is_star">*</span><input type="text" name="goods_public" id="goods_public"/></div>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">版次：</label><div class="info_box"><span class="is_star">*</span><input type="text" name="goods_version" id="goods_version" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/></div>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">简介：</label><span class="is_star">*</span><textarea name="goods_summary" id="goods_summary" cols="80" rows="6"></textarea>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">封面：</label><div class="info_box"><span class="is_star">*</span><input type="file" name="goods_cover" id="goods_cover"  onchange="checkImgType(this)"/></div>
+                    </div>
+                </div>
+                <div class="trade_info">
+                    <h3><span class="f_l">交易信息</span><span class="f_l2">* 为必填项</span></h3>
+                    <div class="fill_info">
+                        <label class="info_name">商品价格：</label><div class="info_box"><span class="is_star">*</span><input type="text" name="goods_price" id="goods_price" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/></div>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">余量：</label><div class="info_box"><span class="is_star">*</span><input type="text" name="goods_amount" id="goods_amount" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/></div>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">新旧程度：</label><div class="info_box"><span class="is_star">*</span><input type="text" name="goods_new" id="goods_new"/></div>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">照片：</label><div class="info_box"><input type="file" name="goods_photo" id="goods_photo" onchange="checkImgType(this)"/></div>
+                    </div>
+                    <div class="fill_info">
+                        <label class="info_name">备注：</label><textarea name="goods_remark" id="goods_remark" cols="80" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="fill_info">
+                    <div class="info_box goods_submit">
+                        <input type="submit" class="a_service_confirm" onclick="is_Need()"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

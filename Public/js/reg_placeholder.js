@@ -5,13 +5,16 @@
 $(function() {
     var use = $('#reg_account');
     var use_wrong = $('#spn_username_wrong');
+    var use_ok = $('#spn_username_ok');
     var pas = $('#reg_password');
     var pas_wrong = $('#spn_password_wrong');
     var pas_strong = $('#spnPwdStrongTip');
     var repas = $('#reg_re_password');
     var repas_wrong = $('#spn_repassword_wrong');
+    var repas_ok = $('#spn_repassword_ok');
     var vco = $('#reg_vcode');
     var vco_wrong = $('#spn_vcode_wrong');
+    var vco_ok = $('#spn_vcode_ok');
     var normal = /^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/;
     var strong = /^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&*]+$)(?![\d!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/;
     var account = /^[a-zA-Z]\w{5,19}$/;
@@ -24,6 +27,17 @@ $(function() {
             if(this.value) {
                 if(!account.test(use.val())) {
                     use_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>格式不正确，请重新输入').show();
+                }
+                else {
+                    $.getJSON('Register/idConflict/' + use.val(), function(data) {
+                        if(data){
+                            use_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>账号名已存在').show();
+                        }
+                        else {
+                            use_ok.show();
+                            use_wrong.hide();
+                        }
+                    });
                 }
             }
             else {
@@ -75,16 +89,16 @@ $(function() {
 
     //重复密码
     repas.focus(function () {
-            $('#spn_repassword_ok').hide();
+            repas_ok.hide();
             repas_wrong.removeClass('cue').addClass('warm').html('请再次输入密码').show();
         }
     ).blur(function () {
             if(pas.val() && repas.val() != pas.val() || repas.val() && !pas.val()) {
                 repas_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>两次密码不相同，请重新输入').show();
             }
-            else if (repas.val() == pas.val() && pas.val() && pas.value.indexOf(' ') == -1){
+            else if ( (repas.val() == pas.val()) && pas.val() && ( pas.val().indexOf(' ') == -1)){
                 repas_wrong.hide();
-                $('#spn_repassword_ok').show();
+                repas_ok.show();
             }
            else{
                 repas_wrong.hide();
@@ -96,11 +110,22 @@ $(function() {
             vco_wrong.removeClass('cue').addClass('warm').html('请输入图片中的字符，不区分大小写').show();
         }
     ).blur(function () {
-            $('#spn_vcode_wrong').hide();
             var input_vco = vco.val();
-            $.getJSON('Register/checkVerify/' + input_vco, function(data) {
-                alert(data);
-            });
+            if(input_vco) {
+                $.getJSON('Register/checkVerify/' + input_vco, function(data) {
+                    if(data) {
+                        vco_wrong.hide();
+                        vco_ok.show();
+                    }
+                    else {
+                        vco_ok.hide();
+                        vco_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>验证码错误').show();
+                    }
+                });
+            }
+            else {
+                vco_wrong.hide();
+            }
         });
 
     //提交
