@@ -16,8 +16,8 @@ class LoginController extends Controller {
 					if ($data) {
 						session ( 'us_nu', $data ['us_nu'] );
 						session ( 'us_id', $data ['us_id'] );
+						session ( 'us_ty', $data ['us_ty'] );
 						if (! $data ['us_ty']) {
-							session ( 'us_ty', $data ['us_ty'] );
 							$this->success ( '请先完善个人资料', U ( 'Perfect/index' ) );
 						} else {
 							session ( 'us_na', $data ['us_na'] );

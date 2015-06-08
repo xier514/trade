@@ -11,7 +11,8 @@ class UserModel extends Model {
 		$data ['us_ty'] = 0;
 		$this->add ( $data );
 	}
-	public function addUserData($us_na, $us_ph, $us_wx, $us_qq, $us_em, $us_ca, $us_ad) {
+	public function addUserData($us_nu, $us_na, $us_ph, $us_wx, $us_qq, $us_em, $us_ca, $us_ad) {
+		$condition ['us_nu'] = $us_nu;
 		$data ['us_ty'] = 1;
 		$data ['us_na'] = $us_na;
 		$data ['us_ph'] = $us_ph;
@@ -20,7 +21,7 @@ class UserModel extends Model {
 		$data ['us_em'] = $us_em;
 		$data ['us_ca'] = $us_ca;
 		$data ['us_ad'] = $us_ad;
-		return $this->add ( $data );
+		return $this->where ( $condition )->save ( $data );
 	}
 	public function DeleteUser($us_nu) {
 		return $this->delete ( $us_nu );
@@ -51,6 +52,14 @@ class UserModel extends Model {
 	}
 	public function idConflict($us_id = 0) {
 		$condition ['us_id'] = $us_id;
+		$data = $this->where ( $condition )->limit ( 1 )->select ();
+		if (isset ( $data [0] )) {
+			return true;
+		} else
+			return false;
+	}
+	public function phoneConflict($us_ph = 0) {
+		$condition ['us_ph'] = $us_ph;
 		$data = $this->where ( $condition )->limit ( 1 )->select ();
 		if (isset ( $data [0] )) {
 			return true;

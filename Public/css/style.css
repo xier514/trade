@@ -34,6 +34,7 @@
             7.4收藏信息
         8.发布商品
             8.1商品信息
+        9.个人资料
     -------------------
     
     COLOURS -----------
@@ -1719,21 +1720,20 @@ label.info_name{
     text-align: right;
     position: relative;
     font-family: Arial;
+    margin-right: 10px;
 }
 
 div.info_box {
-    width: 530px;
+    width: 600px;
     float: left;
-    line-height: 37px;
-    height: auto;
-
+    padding-top: 8px;
+    height: 35px;
 }
 
 .info_box input {
     width: 130px;
     height: 20px;
     line-height: 20px;
-    margin-left: 5px;
 }
 
 .info_box select{
@@ -1745,19 +1745,16 @@ div.info_box {
     font-size: 14px;
 }
 
-.fill_info textarea,.info_box select {
-    margin-left: 5px;
-}
-
 .is_star {
     font-family: simsun;
     font-size: 14px;
     color: #ff4e00;
     vertical-align: top;
+    margin-right: 10px;
 }
 
 .goods_mes h3 {
-    width: 950px;
+    width: 900px;
     height: 25px;
     line-height: 25px;
     border-bottom: 1px solid #e7e7e7;
@@ -1794,4 +1791,81 @@ div.info_box {
 
 .goods_submit {
     margin:15px auto 15px 250px;
+}
+
+/* 9.1个人资料
+---------------------------------------------------------------------- */
+.per_mes {
+    float: left;
+    padding: 20px;
+    border: 1px solid #c8c8c8;
+}
+
+.per_mes h3 {
+    float: left;
+    width: 900px;
+    height: 25px;
+    line-height: 25px;
+    border-bottom: 1px solid #e7e7e7;
+    margin: 20px auto;
+    clear: both;
+}
+
+.per_mes h3 .f_l {
+    border-bottom: 1px solid #bbb;
+    font-family: "Microsoft YaHei";
+    font-size: 18px !important;
+    font-weight: normal !important;
+}
+
+.fill_info input {
+    float:left;
+    width: 130px;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 10px;
+}
+.per_mes h3.other {
+    margin-top: 40px;
+}
+
+.info_box .warm {
+    display: inline-block;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    color: #979797;
+}
+
+.info_box .ok {
+    display: inline-block;
+    float: left;
+    margin: 3px 10px 0 7px;
+    width: 17px;
+    height: 17px;
+    background: url(../images/register.png) -164px -208px;
+}
+
+.info_box .cue {
+    display: inline-block;
+    float: left;
+    background: #fef2f2;
+    color: #f40000;
+    border: 1px solid #ffb8b8;;
+    padding-right: 5px;
+    height: 22px;
+    line-height:22px;
+}
+
+.info_box  .cue .icon{
+    display: inline-block;
+    float: left;
+    margin: 3px 10px 0 7px;
+    width: 17px;
+    height: 17px;
+    background: url(../images/register.png) -215px -208px;
+}
+
+.info_box select {
+    float: left;
 }

@@ -21,7 +21,7 @@ $(function() {
 
     //账号
     use.focus(function () {
-            use_wrong.removeClass('cue').addClass('warm').html('6-20个字符,可由英文、数字及下划线组成，必须以英文开头').show();
+            use_wrong.removeClass('cue').addClass('warm').html('6-20个字符,可由英文、数字及下划线组成，必须以英文开头').css("display", "inline-block")
         }
     ).blur(function () {
             if(this.value) {
@@ -118,7 +118,7 @@ $(function() {
                         vco_ok.show();
                     }
                     else {
-                        vco_ok.hide();
+
                         vco_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>验证码错误').show();
                     }
                 });
@@ -142,6 +142,5 @@ $(function() {
         if( ! vco.val() ) {
             vco_wrong.removeClass('warm').addClass('cue').html('<span class="icon"></span>验证码不能为空').show();
         }
-
     })
 })

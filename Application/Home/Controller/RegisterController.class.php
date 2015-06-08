@@ -36,8 +36,10 @@ class RegisterController extends Controller {
 				if (I ( 'POST.reg_account' ) && I ( 'POST.reg_password' )) {
 					if (! D ( 'User' )->idConflict ( I ( 'POST.reg_account' ) )) {
 						if (I ( 'POST.reg_re_password' ) && I ( 'POST.reg_re_password' ) == I ( 'POST.reg_re_password' )) {
-							D ( 'User' )->reg ( I ( 'POST.reg_account' ), I ( 'POST.reg_password' ) );
-							$this->success ( '成功', U ( 'Login/index' ) );
+							if (D ( 'User' )->reg ( I ( 'POST.reg_account' ), I ( 'POST.reg_password' ) ))
+								$this->success ( '成功', U ( 'Login/index' ) );
+							else
+								$this->error ( '注册失败，请稍后再试' );
 						} else {
 							$this->error ( '确认密码错误' );
 						}
