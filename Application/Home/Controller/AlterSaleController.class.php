@@ -11,6 +11,7 @@ class AlterSaleController extends Controller {
 			if ($book [0] ['us_nu'] == session ( 'us_nu' )) {
 				$this->assign ( 'subtype', D ( 'Subtype' )->getAllSubtype () );
 				$this->assign ( 'book', $book [0] );
+				$this->assign ( 'amount', D ( 'Notice' )->getUnreadNoticeAmount ( session ( 'us_nu' ) ) );
 				$this->display ();
 			} else {
 				$this->error ( '你没有修改权限' );

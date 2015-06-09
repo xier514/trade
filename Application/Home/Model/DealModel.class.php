@@ -22,10 +22,19 @@ class DealModel extends Model {
 	}
 	public function getDeal($de_nu) {
 		$condition ['de_nu'] = $de_nu;
-		return $this->where ( $condition )->limit ( 1 )->select ();
+		return $this->where ( $condition )->join ( 'book ON deal.bo_nu = book.bo_nu' )->limit ( 1 )->select ();
 	}
 	public function getBuyDeal($us_nu, $page = 1) {
+		$condition ['deal.us_nu'] = $us_nu;
+		return $this->where ( $condition )->join ( 'book ON deal.bo_nu = book.bo_nu' )->page ( $page, 10 )->select ();
+	}
+	public function checkDeal($bo_nu, $us_nu) {
+		$condition ['bo_nu'] = $bo_nu;
 		$condition ['us_nu'] = $us_nu;
-		return $this->where ( $condition )->page ( $page, 10 )->select ();
+		$data = $this->where ( $condition )->limit ( 1 )->select ();
+		if (isset ( $data )) {
+			return true;
+		} else
+			return false;
 	}
 }

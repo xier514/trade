@@ -35,6 +35,9 @@
         8.发布商品
             8.1商品信息
         9.个人资料
+        10.交易
+            10.1图书信息
+            10.2卖家信息
     -------------------
     
     COLOURS -----------
@@ -1278,15 +1281,14 @@
 /* 5.1图书信息
 ---------------------------------------------------------------------- */
 .good_in {
-    height: 500px;
     width: 800px;
     margin-left: 60px;
 
 }
 
-.good_in .photo {
-    width: 350px;
-    height: 350px;
+.good_in .photo img{
+    width: 300px;
+    height: 300px;
 }
 
 .good_in  .m_r6 {
@@ -1423,6 +1425,43 @@
 .my_right .my_right_list ul li img {
     height: 50px;
     width: 50px;
+}
+
+.pro_content {
+    border: solid #e9e9e9;
+    border-width: 0 1px 1px 1px;
+    margin-left: 60px;
+    width: 800px;
+    overflow: hidden;
+}
+
+.pro_content .section {
+    margin-bottom: 10px;
+    color: #666;
+    position: relative;
+}
+
+.pro_content .section .tit {
+    font-size: 14px;
+    color: #000;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    height: 31px;
+    line-height: 31px;
+    padding-left: 17px;
+}
+
+.pro_content .section  .content {
+    padding: 25px 29px 15px;
+    line-height: 24px;
+    font-size: 14px;
+}
+
+.pro_content .section  .content img{
+    width: 400px;
+    height: 400px;
+    display: block;
+    margin: 0 auto;
 }
 
 /* 7.1排序
@@ -1874,4 +1913,120 @@ div.info_box {
 
 .info_box select {
     float: left;
+}
+
+/* 10.1图书信息
+---------------------------------------------------------------------- */
+.book_info {
+    border: 5px solid #efeae5;
+}
+
+.book_info table th {
+    height: 37px;
+    font-weight: normal;
+    background-color: #efeae5;
+}
+
+.book_info  table .c1 {
+    width: 400px;
+}
+
+.book_info  table .c2 {
+    width: 120px;
+}
+
+.book_info  table td {
+    text-align: center;
+}
+
+.book_info  table td  .goods_img{
+    border: 1px solid #fff;
+    overflow: hidden;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    vertical-align: text-top;
+}
+
+.book_info  table td a img{
+    width: 54px;
+    height: 54px;
+}
+
+.book_info table .goods_name {
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.book_info table .goods_detail {
+    margin-left: 15px;
+    line-height: 20px;
+}
+
+.book_info table .goods_detail a {
+    color: #404040;
+    font-size: 14px;
+
+}
+
+.book_info table .goods_detail a:hover{
+    color: #F60;
+    text-decoration: underline;
+}
+
+.book_info table .goods_public {
+    float: left;
+    line-height: 18px;
+}
+
+.book_info table .row2 {
+    color: #c30;
+    font-weight: bold;
+}
+
+.book_info table .row5 a {
+    color: #1a66b3;
+}
+
+.book_info table .row5 a:hover {
+    text-decoration: underline;
+}
+
+/* 10.2卖家信息
+---------------------------------------------------------------------- */
+.seller_info{
+    margin-top: 50px;
+    border: 5px solid #ec7814;
+    padding-bottom: 30px;
+}
+
+.seller_info h3 {
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-family: "Microsoft YaHei";
+    font-size: 18px !important;
+    font-weight: normal ;
+}
+
+.seller_info .seller_inner {
+    width: 880px;
+}
+
+.seller_info .row_in {
+    width: 500px;
+    margin-left: 250px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+
+.seller_info .row_in .row_name {
+    width: 140px;
+    float: left;
+    text-align: right;
+    position: relative;
+    font-family: Arial;
+    margin-right: 10px;
 }

@@ -23,6 +23,9 @@
 						<li><a href="__APP__/home/Sale">发布二手书</a></li>
 						<li><a href="__APP__/home/Collection">收藏夹</a></li>
 						<li><a href="__APP__/home/Center">个人中心</a></li>
+						<li>
+							<?php if(session('us_id')) echo '<a href="__APP__/home/Center">你有[ '.$amount.' ]条未读通知 </a>'; ?>
+						</li>
 					</ul>
 				</div>
 			</div>

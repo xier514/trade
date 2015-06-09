@@ -42,6 +42,7 @@ class ListController extends Controller {
 			$this->assign ( 'order', ( int ) $order );
 			$this->assign ( 'type', $type [0] );
 			$this->assign ( 'subtype', $subtype );
+			$this->assign ( 'amount', D ( 'Notice' )->getUnreadNoticeAmount ( session ( 'us_nu' ) ) );
 			$this->display ();
 		} else {
 			$this->error ( '输入网址有误' );

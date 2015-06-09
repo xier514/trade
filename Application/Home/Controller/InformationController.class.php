@@ -11,6 +11,7 @@ class InformationController extends Controller {
 				$this->error ( '请先完善资料', U ( 'Perfect/index' ) );
 			} else {
 				$this->assign ( 'user', D ( 'User' )->getUser ( session ( 'us_nu' ) ) );
+				$this->assign ( 'amount', D ( 'Notice' )->getUnreadNoticeAmount ( session ( 'us_nu' ) ) );
 				$this->display ();
 			}
 		} else {

@@ -11,6 +11,7 @@ class IndexController extends Controller {
 		$this->assign ( 'bookList2', D ( 'Book' )->getBooks ( 2 ) );
 		$this->assign ( 'bookList3', D ( 'Book' )->getBooks ( 3 ) );
 		$this->assign ( 'bookList4', D ( 'Book' )->getBooks ( 4 ) );
+		$this->assign ( 'amount', D ( 'Notice' )->getUnreadNoticeAmount ( session ( 'us_nu' ) ) );
 		$this->display ();
 	}
 }

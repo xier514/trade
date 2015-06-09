@@ -9,6 +9,7 @@ class SaleController extends Controller {
 		if (session ( 'us_nu' )) {
 			if (session ( 'us_ty' )) {
 				$this->assign ( 'subtype', D ( 'Subtype' )->getAllSubtype () );
+				$this->assign ( 'amount', D ( 'Notice' )->getUnreadNoticeAmount ( session ( 'us_nu' ) ) );
 				$this->display ();
 			} else {
 				$this->error ( '您的资料尚未完善', U ( 'Perfect/index' ) );

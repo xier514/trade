@@ -38,7 +38,7 @@ class UserModel extends Model {
 		return $this->page ( $page, 10 )->select ();
 	}
 	public function getSaleDeal($us_nu, $page = 1) {
-		$condition ['us_nu'] = $us_nu;
+		$condition ['user.us_nu'] = $us_nu;
 		return $this->where ( $condition )->join ( 'book ON user.us_nu = book.us_nu' )->join ( 'deal ON book.bo_nu = deal.bo_nu' )->page ( $page, 10 )->select ();
 	}
 	public function log($us_id, $us_pw) {

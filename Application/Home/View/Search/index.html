@@ -24,6 +24,9 @@
 						<li><a href="__APP__/home/Sale">发布二手书</a></li>
 						<li><a href="__APP__/home/Collection">收藏夹</a></li>
 						<li><a href="__APP__/home/Center">个人中心</a></li>
+						<li>
+							<?php if(session('us_id')) echo '<a href="__APP__/home/Center">你有[ '.$amount.' ]条未读通知 </a>'; ?>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -156,7 +159,7 @@
 						<div class="buy_col">
 							<a class="buy"
 								href="__APP__/home/Book/index/<?php echo $v['bo_nu']; ?>"></a> <a
-								class="collection" href="#"></a>
+								class="collection" href="__APP__/home/Collection/add/<?php echo $v['bo_nu'] ?>"></a>
 						</div>
 						<div class="price">
 							<?php echo $v['bo_pr'].' 元 '; ?>

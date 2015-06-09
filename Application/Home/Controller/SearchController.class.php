@@ -13,6 +13,7 @@ class SearchController extends Controller {
 			$this->assign ( 'order', ( int ) $order );
 			$this->assign ( 'type', $type [0] );
 			$this->assign ( 'subtype', $subtype );
+			$this->assign ( 'amount', D ( 'Notice' )->getUnreadNoticeAmount ( session ( 'us_nu' ) ) );
 			switch (( int ) $order) {
 				case 1 :
 					$this->assign ( 'bookList', D ( 'Book' )->searchBooksList ( $keyword, 'bo_pr asc' ) );

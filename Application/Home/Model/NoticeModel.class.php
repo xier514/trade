@@ -11,8 +11,8 @@ class NoticeModel extends Model {
 		$data ['no_st'] = $no_st;
 		return $this->add ( $data );
 	}
-	public function deleteNotice($us_nu) {
-		return $this->delete ( $us_nu );
+	public function deleteNotice($no_nu) {
+		return $this->delete ( $no_nu );
 	}
 	public function setNoticeState($no_nu, $no_st) {
 		$condition ['no_nu'] = $no_nu;

@@ -12,9 +12,10 @@ class BookController extends Controller {
 			$this->assign ( 'typeDetail', $subtype [0] );
 			$type = D ( 'Type' )->getType ( $subtype [0] ['ty_nu'] );
 			$this->assign ( 'type', $type [0] );
-			$subtype = D ( 'Subtype' )->getSubType ( $type[0]['ty_nu'] );
+			$subtype = D ( 'Subtype' )->getSubType ( $type [0] ['ty_nu'] );
 			$this->assign ( 'subtype', $subtype );
 			$this->assign ( 'book', $book [0] );
+			$this->assign ( 'amount', D ( 'Notice' )->getUnreadNoticeAmount ( session ( 'us_nu' ) ) );
 			$this->display ();
 		} else {
 			$this->error ( '二手书不存在' );

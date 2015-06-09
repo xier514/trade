@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>广工二手书网</title>
+<title>交易</title>
 <link href="__PUBLIC__/css/reset.css" rel="stylesheet">
 <link href="__PUBLIC__/css/style.css" rel="stylesheet">
 </head>
@@ -60,11 +60,7 @@
 	<div class="content comWidth">
 		<!-- Breadcrumb 导航-->
 		<div class="breadcrumb">
-			<a href="__APP__">广工二手书网</a> <span>></span>
-			<?php echo '<a href="__APP__/home/List/index/'.$type['ty_nu'].'">'.$type['ty_na'].'</a>'; ?>
-			<span>></span>
-			<?php echo '<a href="__APP__/home/List/index/'.$type['ty_nu'].'/'.$typeDetail['su_nu'].'">'.$typeDetail['su_na'].'</a>'; ?>
-			<span>></span><span class="current"> <?php echo $book['bo_na'] ?>
+			<a href="__APP__">广工二手书网</a> <span>></span><span class="current">交易
 			</span>
 		</div>
 		<div class="aside fl">
@@ -92,93 +88,78 @@
 				</ul>
 			</div>
 		</div>
-		<div class="good_in fl">
-			<div class="photo fl">
-				<img src="__PUBLIC__/images/book/<?php echo $book['bo_co'] ?>"
-					alt="" />
-			</div>
-			<div class="show_info fl">
-				<div class="book_in">
-					<h1>
-						<?php echo $book['bo_na'] ?>
-					</h1>
-					<div class="m_r6 clear">
-						<div class="fl show_info">作者：</div>
-						<div class="fl">
-							<?php echo $book['bo_au'] ?>
-						</div>
-					</div>
-					<div class="m_r6  clear">
-						<div class="fl show_info">出版社：</div>
-						<div class="fl">
-							<?php echo $book['bo_pu'] ?>
-						</div>
-					</div>
-					<div class="m_r6 clear">
-						<div class="fl show_info">版次：</div>
-						<div class="fl">
-							<?php echo '第 '.$book['bo_or'].' 版'; ?>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="clear m_r6">
-						<div class="fl show_info">售价：</div>
-						<div class="fl price">
-							<?php echo $book['bo_pr'].' 元'; ?>
-						</div>
-					</div>
-					<div class="clear m_r6">
-						<div class="fl show_info">余量：</div>
-						<div class="fl">
-							<?php echo $book['bo_le'].' 本'; ?>
-						</div>
-					</div>
-					<div class="clear m_r6">
-						<div class="fl show_info">新旧程度：</div>
-						<div class="fl">
+		<div class="book_info fr">
+			<table>
+				<thead>
+					<tr>
+						<th class="c1">商品名称</th>
+						<th class="c2">单价</th>
+						<th class="c2">新旧程度</th>
+						<th class="c2">状态</th>
+						<th class="c2">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="goods_name"><a href="" class="goods_img"><img
+								src="__PUBLIC__/images/book/<?php echo $book['bo_co'] ?>" alt="" /></a>
+							<div class="goods_detail">
+								<a href=""> <?php echo $book['bo_na'] ?>
+								</a>
+							</div>
+							<div class="goods_public">
+								<span> <?php echo '第 '.$book['bo_or'].' 版'; ?> &nbsp;/
+									&nbsp;<?php echo $book['bo_pu'] ?>
+								</span>
+							</div></td>
+						<td class="row2"><em> <?php echo $book['bo_pr'].' 元'; ?>
+						</em></td>
+						<td>
 							<?php echo $book['bo_de'].' 成新'; ?>
-						</div>
-					</div>
-					<div class="clear m_r6">
-						<div class="fl show_info">状态：</div>
-						<div class="fl">
-							<?php if($book['bo_st']) echo '正在出售'; else echo '已关闭'; ?>
-						</div>
-					</div>
-				</div>
-				<div class="btn_p">
-					<div class="buy">
-						<a href="__APP__/home/Deal/index/<?php echo $book['bo_nu'] ?>"></a>
-					</div>
-					<div class="collect">
-						<a href="__APP__/home/Collection/add/<?php echo $book['bo_nu'] ?>"></a>
-					</div>
-				</div>
-			</div>
+						</td>
+						<td>交易中</td>
+						<td class="row5"><a href="__APP__/home/Center">个人中心</a></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		<div class="pro_content fl">
-			<div class="section">
-				<div class="tit">简介</div>
-				<div class="content">
-					<span> <?php echo $book['bo_su'] ?>
+		<div class="seller_info fr">
+			<h3>卖家信息（建议主动联系卖家）</h3>
+			<div class="seller_inner">
+				<div class="row_in">
+					<label class="row_name">用户名：</label> <span class="row_text">
+						<?php echo $seller['us_na'] ?>
 					</span>
 				</div>
-			</div>
-			<div class="section">
-				<div class="tit">备注</div>
-				<div class="content">
-					<span> <?php if($book['bo_re']) echo $book['bo_re'];else echo '无'; ?>
+				<div class="row_in">
+					<label class="row_name">校区：</label> <span class="row_text">
+						<?php echo $seller['us_ca'] ?>
 					</span>
 				</div>
-			</div>
-			<div class="section">
-				<div class="tit">照片展示</div>
-				<div class="content">
-					<?php if($book['bo_pi']){?>
-					<img src="__PUBLIC__/images/book/<?php echo $book['bo_pi'] ?>"
-						alt="" />
-					<?php } else echo '卖家未添加图片'; ?>
+				<div class="row_in">
+					<label class="row_name">地址：</label> <span class="row_text">
+						<?php if($seller['us_ad']) echo $seller['us_ad'];else echo '无' ?>
+					</span>
+				</div>
+				<div class="row_in">
+					<label class="row_name">手机：</label> <span class="row_text">
+						<?php echo $seller['us_ph'] ?>
+					</span>
+				</div>
+				<div class="row_in">
+					<label class="row_name">QQ：</label> <span class="row_text">
+						<?php if($seller['us_qq']) echo $seller['us_qq'];else echo '无' ?>
+					</span>
+				</div>
+				<div class="row_in">
+					<label class="row_name">电子邮箱：</label> <span class="row_text">
+						<?php if($seller['us_em']) echo $seller['us_em'];else echo '无' ?>
+					</span>
+				</div>
+				<div class="row_in">
+					<label class="row_name">微信：</label> <span class="row_text">
+						<?php if($seller['us_wx']) echo $seller['us_wx'];else echo '无' ?>
+					</span>
 				</div>
 			</div>
 		</div>
