@@ -659,39 +659,44 @@
      vertical-align: bottom;
  }
 
-.reg_r .pswState {
+.reg_r .pswState,.info_box .pswState{
     float: left;
     margin-top: 5px;
+    margin-right: 10px;
     display: inline-block;
     color: #ffffff;
     height: 20px;
 }
 
-.reg_r .pswState.pswState-poor .s1{
+.info_box .pswState {
+    margin-top: 3px;
+}
+
+.reg_r .pswState.pswState-poor .s1,.info_box .pswState.pswState-poor .s1{
     background-color: #ffc6a0;
 }
 
-.reg_r .pswState.pswState-normal .s1{
+.reg_r .pswState.pswState-normal .s1,.info_box .pswState.pswState-normal .s1{
     background-color: #ffc6a0;
 }
 
-.reg_r .pswState.pswState-normal .s2{
+.reg_r .pswState.pswState-normal .s2,.info_box .pswState.pswState-normal .s2{
     background-color: #ffa568;
 }
 
-.reg_r .pswState.pswState-strong .s1{
+.reg_r .pswState.pswState-strong .s1,.info_box .pswState.pswState-strong .s1{
     background-color: #ffc6a0;
 }
 
-.reg_r .pswState.pswState-strong .s2{
+.reg_r .pswState.pswState-strong .s2, .info_box .pswState.pswState-strong .s2{
     background-color: #ffa568;
 }
 
-.reg_r .pswState.pswState-strong .s3{
+.reg_r .pswState.pswState-strong .s3, .info_box .pswState.pswState-strong .s3{
     background-color: #ff8e42;;
 }
 
-.reg_r .pswState span {
+.reg_r .pswState span,  .info_box .pswState span{
     display: block;
     float: left;
     background: #B7B9AC;
@@ -1747,11 +1752,10 @@ div.info_box {
 
 .is_star {
     font-family: simsun;
+    float: left;
     font-size: 14px;
     color: #ff4e00;
-    float:left;
-    vertical-align: top;
-    margin-top:5px;
+    margin-top: 5px;
     margin-right: 10px;
 }
 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/require.js" data-main="js/revise_main" defer async="true"></script>
+</head>
+<body>
+    <div class="headerBar">
+        <!-- 顶部导航 -->
+        <div class="topBar">
+            <div class="comWidth">
+                <div class="leftArea">
+                    欢迎来广工二手书网！ &nbsp;
+                    <a href="login.html">登录</a>
+                    <a href="register.html">免费注册</a>
+                </div>
+                <div class="rightArea">
+                    <ul>
+                        <li><a href=""><i class="shopCar"></i>购物车</a></li>
+                        <li><a href="">收藏夹</a></li>
+                        <li><a href="">个人中心</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 搜索栏 -->
+        <div class="logoBar comWidth">
+            <div class="logo fl">
+                <a href=""><img src="images/logo.png" alt="广工二手书网"></a>
+            </div>
+            <div class="searchBox fl">
+                <form action="">
+                    <input type="text" class="search_text">
+                    <input type="button" class="search_btn" value="搜索">
+                    <a href="" class="senior-search">高级搜索</a>
+                </form>
+            </div>
+            <div class="qrcode fr">
+                <a href=""><img src="images/erweima.png" alt=""></a>
+            </div>
+        </div>
+        <!-- 页面导航 -->
+        <div class="nav_top">
+            <div class="comWidth">
+                <ul>
+                    <li class="all"><span>全部商品分类</span><i></i></li>
+                    <li><a href="">首页</a></li>
+                    <li><a href="">书店区</a></li>
+                    <li><a href="">资讯</a></li>
+                    <li><a href="">社区</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content comWidth">
+        <!--导航-->
+        <div class="breadcrumb">
+            <a href="">广工二手书网</a>
+            <span>></span>
+            <a href="">个人中心</a>
+        </div>
+        <div class="main_frame fl">
+            <div class="my_left fl">
+                <h3 class="my_left_title">我的交易</h3>
+                <ul class="my_left_content">
+                    <li><a href="">我的订单</a></li>
+                    <li><a href="">我的收藏</a></li>
+                </ul>
+                <h3 class="my_left_title">个人信息</h3>
+                <ul class="my_left_content">
+                    <li><a href="">个人档案</a></li>
+                    <li><a href="">站内信</a></li>
+                </ul>
+            </div>
+            <div class="my_right fl">
+                <div class="per_mes">
+                    <form action="" id="revise_form">
+                        <h3><span class="f_l">修改密码</span></h3>
+                        <div class="fill_info">
+                            <label class="info_name" for="old_pas">原密码：</label>
+                            <div class="info_box">
+                                <input type="password" name="old_pas" id="old_pas">
+                                <span id="old_password_ok" class="ok" style="display: none"></span>
+                            <span id="old_password_wrong" class="warm"  style="display: none">
+                                <span class="icon"></span>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="fill_info">
+                            <label class="info_name" for="new_pas">新密码：</label>
+                            <div class="info_box">
+                                <input type="password" name="new_pas" id="new_pas">
+                                <span id="new_password_ok" class="ok" style="display: none"></span>
+                                <span id="newPwdStrongTip" class="pswState pswState-poor" style="display: none">
+                                   <span class="s1">弱</span>
+                                   <span class="s2">中</span>
+                                   <span class="s3">强</span>
+                                </span>
+                                <span id="new_password_wrong" class="warm"  style="display: none;">
+                                    <span class="icon"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="fill_info">
+                            <label class="info_name" for="re_new_pas">重复新密码：</label>
+                            <div class="info_box">
+                                <input type="password" name="re_new_pas" id="re_new_pas">
+                                <span id="new_repassword_ok" class="ok" style="display: none"></span>
+                            <span id="new_repassword_wrong" class="warm"  style="display: none;">
+                                <span class="icon"></span>
+                            </span>
+                            </div>
+                        </div>
+                        <div class="fill_info">
+                            <div class="info_box goods_submit">
+                                <input type="submit" class="a_service_confirm" id="revise_submit"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
