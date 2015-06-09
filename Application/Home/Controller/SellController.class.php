@@ -18,10 +18,16 @@ class SellController extends Controller {
 		}
 	}
 	public function close($bo_nu) {
-		$state = D ( 'Book' )->setBookState ( ( int ) $bo_nu, 0 );
-		if ($state)
-			$this->success ( '交易已关闭' );
-		else if ($state === null)
-			$this->error ( '交易关闭失败，请稍后再试' );
+		$book = D ( 'Book' )->getBook ( ( int ) $bo_nu );
+		if ($book [0] ['us_nu'] == session ( 'us_nu' )) {
+			$state = D ( 'Book' )->setBookState ( ( int ) $bo_nu, 0 );
+			if ($state)
+				$this->success ( '二手书已关闭发布' );
+			else if ($state === null)
+				$this->error ( '关闭发布失败，请稍后再试' );
+			else
+				$this->error ( '二手书原本已关闭发布' );
+		} else
+			$this->error ( '你没有权限' );
 	}
 }

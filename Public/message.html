@@ -77,12 +77,12 @@
             </div>
             <div class="message_box fl">
                 <div class="my_message">
-                    <div class="message_title new">
+                    <div class="message_title">
                         <a href="#">欢迎使用本网站</a>
                     </div>
                     <div class="message_inner">
                         <div class="message_content">
-                            欢迎使用本网站
+                            欢迎使用本网站欢迎使用本网站欢迎使用本网站欢迎使用本网站欢迎使用本网站欢迎使用本网站欢迎使用本网站欢迎使用本网站
                         </div>
                         <div class="message_operation">
                             <span>[删除]</span>
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="my_message">
-                    <div class="message_title new">
+                    <div class="message_title">
                         <a href="#">欢迎使用本网站</a>
                     </div>
                     <div class="message_inner">
@@ -109,7 +109,7 @@
         $(function() {
             $(".message_title").click(function(){
                 $(this).siblings(".message_inner").slideToggle("normal");
-                $(this).toggleClass("open").toggleClass("new");
+                $(this).toggleClass("open").removeClass("message_title").addClass("message_title_a")
             })
         })
     </script>

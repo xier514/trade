@@ -78,8 +78,10 @@
 			<div class="message_box fl">
 				<?php foreach($notice as $k => $v){ ?>
 				<div class="my_message">
-					<?php if($v['no_st'] == 0) echo '<div class="message_title new">'; else echo '<div class="message_title">'; ?>
-					<a href="#" id="<?php echo $v['no_nu'] ?>">您有一笔新交易未处理</a>
+					<?php if($v['no_st'] == 0) echo '<div class="message_title">'; else echo '<div class="message_title_a">'; ?>
+					<a href="#" id="<?php echo $v['no_nu'] ?>">
+						<?php echo ($k+1).'. '; ?>您有一笔新交易未处理
+					</a>
 				</div>
 				<div class="message_inner">
 					<div class="message_content">
@@ -97,11 +99,18 @@
 	</div>
 	<script>
 		$(function() {
-			$(".message_title").click(function() {
-				var id = $(this).children('a').attr('id');
-				$.getJSON('Center/read/' + id);
+			$(".message_title").click(
+					function() {
+						var id = $(this).children('a').attr('id');
+						$.getJSON('Center/read/' + id);
+						$(this).siblings(".message_inner")
+								.slideToggle("normal");
+						$(this).toggleClass("open")
+								.removeClass("message_title").addClass(
+										"message_title_a")
+					})
+			$(".message_title_a").click(function() {
 				$(this).siblings(".message_inner").slideToggle("normal");
-				$(this).toggleClass("open").toggleClass("new");
 			})
 		})
 	</script>

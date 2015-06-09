@@ -18,13 +18,11 @@ class CenterController extends Controller {
 		}
 	}
 	public function read($no_nu) {
-		if (D ( 'Notice' )->setNoticeState ( ( int ) $no_nu, 1 )) {
-			//$this->display ();
-		}
+		D ( 'Notice' )->setNoticeState ( ( int ) $no_nu, 1 );
 	}
 	public function delete($no_nu) {
 		if (D ( 'Notice' )->deleteNotice ( ( int ) $no_nu )) {
-			$this->display ();
+			$this->display ( 'index' );
 		}
 	}
 }

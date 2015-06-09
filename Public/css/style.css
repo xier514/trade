@@ -2038,42 +2038,48 @@ div.info_box {
     margin-bottom: 10px;
 }
 
-.my_message .message_title {
+.my_message .message_title, .my_message .message_title_a{
     width: 800px;
     height: 50px;
     line-height: 50px;
     padding-left: 50px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
-    background: #979797;
+    background: #a0d3f6;
+    color: #ffffff;
     border-radius: 10px 10px 10px 10px;
     cursor: pointer;
+    font-family: "微软雅黑";
 }
 
-.my_message .message_title.open {
+.my_message .message_title.open,.my_message .message_title_a.open {
     border-radius: 10px 10px 0px 0px;
 }
 
-.my_message .message_title.new a{
-    color: #f47735;
+.my_message .message_title a,.my_message .message_title_a a{
+    color: #ffffff;
 }
 
-.my_message .message_title a{
-    color: #ffffff;
+.my_message .message_title a:before{
+    content: "[未读]";
 }
 
 .my_message .message_inner {
     display: none;
     position: relative;
-    height:80px;
-    background: #dddddd;
+    background: #e5fdff;
     border-radius: 0px 0px 10px 10px;
 }
 
 .my_message .message_inner .message_content {
-    font-size: 14px;
+    width: 700px;
+    line-height: 30px;
+    font-family: "微软雅黑";
+    font-size: 16px;
     padding-top: 20px;
     padding-left: 30px;
+    padding-bottom: 20px;
+    text-indent:2em;
 }
 
 .my_message .message_inner .message_operation {

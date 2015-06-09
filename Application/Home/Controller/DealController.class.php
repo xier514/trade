@@ -13,21 +13,25 @@ class DealController extends Controller {
 				$book = D ( 'Book' )->getBook ( ( int ) $bo_nu );
 				$this->assign ( 'book', $book [0] );
 				$seller = D ( 'User' )->getUser ( $book [0] ['us_nu'] );
-				if ($seller [0] ['us_nu'] != session ( 'us_nu' )) {
-					$this->assign ( 'seller', $seller [0] );
-					$customer = D ( 'User' )->getUser ( session ( 'us_nu' ) );
-					$this->assign ( 'customer', $customer [0] );
-					$subtype = D ( 'Subtype' )->getType ( $book [0] ['su_nu'] );
-					$this->assign ( 'typeDetail', $subtype [0] );
-					$type = D ( 'Type' )->getType ( $subtype [0] ['ty_nu'] );
-					$this->assign ( 'type', $type [0] );
-					$subtype = D ( 'Subtype' )->getSubType ( $type [0] ['ty_nu'] );
-					$this->assign ( 'subtype', $subtype );
-					$this->assign ( 'amount', D ( 'Notice' )->getUnreadNoticeAmount ( session ( 'us_nu' ) ) );
-					$this->order ( ( int ) $bo_nu, $book [0] ['bo_na'], $customer [0] ['us_na'], $customer [0] ['us_ph'], $seller [0] ['us_nu'] );
-					$this->display ();
+				if ($book [0] ['bo_st'] != 0) {
+					if ($seller [0] ['us_nu'] != session ( 'us_nu' )) {
+						$this->assign ( 'seller', $seller [0] );
+						$customer = D ( 'User' )->getUser ( session ( 'us_nu' ) );
+						$this->assign ( 'customer', $customer [0] );
+						$subtype = D ( 'Subtype' )->getType ( $book [0] ['su_nu'] );
+						$this->assign ( 'typeDetail', $subtype [0] );
+						$type = D ( 'Type' )->getType ( $subtype [0] ['ty_nu'] );
+						$this->assign ( 'type', $type [0] );
+						$subtype = D ( 'Subtype' )->getSubType ( $type [0] ['ty_nu'] );
+						$this->assign ( 'subtype', $subtype );
+						$this->assign ( 'amount', D ( 'Notice' )->getUnreadNoticeAmount ( session ( 'us_nu' ) ) );
+						$this->order ( ( int ) $bo_nu, $book [0] ['bo_na'], $customer [0] ['us_na'], $customer [0] ['us_ph'], $seller [0] ['us_nu'] );
+						$this->display ();
+					} else {
+						$this->error ( '你不能交易自己发布的二手书' );
+					}
 				} else {
-					$this->error ( '你不能交易自己发布的二手书' );
+					$this->error ( '发布已关闭，不能交易' );
 				}
 			}
 		} else {

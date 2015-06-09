@@ -101,6 +101,10 @@
 				<div class="book_in">
 					<h1>
 						<?php echo $book['bo_na'] ?>
+						<small> <?php if($book['us_nu'] == session('us_nu')) {?> <a
+							href="__APP__/home/AlterSale/index/<?php echo $book['bo_nu'] ?>">修改</a>
+							<?php } ?>
+						</small>
 					</h1>
 					<div class="m_r6 clear">
 						<div class="fl show_info">作者：</div>
@@ -144,12 +148,18 @@
 						<div class="fl show_info">状态：</div>
 						<div class="fl">
 							<?php if($book['bo_st']) echo '正在出售'; else echo '已关闭'; ?>
+							<?php if($book['us_nu'] == session('us_nu')&&$book['bo_st']==1) { ?>
+							<small><a
+								href="__APP__/home/Sell/close/<?php echo $book['bo_nu'] ?>">&nbsp;关闭发布</a></small>
+							<?php } ?>
 						</div>
 					</div>
 				</div>
 				<div class="btn_p">
 					<div class="buy">
-						<a href="__APP__/home/Deal/index/<?php echo $book['bo_nu'] ?>"></a>
+						<a
+							href="__APP__/home/Deal/index/<?php echo $book['bo_nu']
+							?>"></a>
 					</div>
 					<div class="collect">
 						<a href="__APP__/home/Collection/add/<?php echo $book['bo_nu'] ?>"></a>
