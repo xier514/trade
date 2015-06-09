@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>修改密码</title>
+<title>个人中心</title>
 <link href="__PUBLIC__/css/reset.css" rel="stylesheet">
 <link href="__PUBLIC__/css/style.css" rel="stylesheet">
-<script src="__PUBLIC__/js/require.js"
-	data-main="__PUBLIC__/js/revise_main" defer async="true"></script>
+<script src="__PUBLIC__/js/jquery.js"></script>
 </head>
 <body>
 	<div class="headerBar">
@@ -23,9 +22,6 @@
 						<li><a href="__APP__/home/Sale">发布二手书</a></li>
 						<li><a href="__APP__/home/Collection">收藏夹</a></li>
 						<li><a href="__APP__/home/Center">个人中心</a></li>
-						<li>
-							<?php if(session('us_id')) echo '<a href="__APP__/home/Center">你有[ '.$amount.' ]条未读通知 </a>'; ?>
-						</li>
 					</ul>
 				</div>
 			</div>
@@ -62,7 +58,7 @@
 	<div class="content comWidth">
 		<!--导航-->
 		<div class="breadcrumb">
-			<a href="__APP__">广工二手书网</a> <span>></span> <a href="#">个人中心</a>
+			<a href="__APP__">广工二手书网</a> <span>></span>个人中心
 		</div>
 		<div class="main_frame fl">
 			<div class="my_left fl">
@@ -79,56 +75,35 @@
 					<li><a href="__APP__/home/Center">站内通知</a></li>
 				</ul>
 			</div>
-			<div class="my_right fl">
-				<div class="per_mes">
-					<form method="post" action="__APP__/home/Password/changePassword"
-						id="revise_form">
-						<h3>
-							<span class="f_l">修改密码</span>
-						</h3>
-						<div class="fill_info">
-							<label class="info_name" for="old_pas">原密码：</label>
-							<div class="info_box">
-								<input type="password" name="old_pas" id="old_pas"> <span
-									id="old_password_ok" class="ok" style="display: none"></span> <span
-									id="old_password_wrong" class="warm" style="display: none">
-									<span class="icon"></span>
-								</span>
-							</div>
-						</div>
-						<div class="fill_info">
-							<label class="info_name" for="new_pas">新密码：</label>
-							<div class="info_box">
-								<input type="password" name="new_pas" id="new_pas"> <span
-									id="new_password_ok" class="ok" style="display: none"></span> <span
-									id="newPwdStrongTip" class="pswState pswState-poor"
-									style="display: none"> <span class="s1">弱</span> <span
-									class="s2">中</span> <span class="s3">强</span>
-								</span> <span id="new_password_wrong" class="warm"
-									style="display: none;"> <span class="icon"></span>
-								</span>
-							</div>
-						</div>
-						<div class="fill_info">
-							<label class="info_name" for="re_new_pas">重复新密码：</label>
-							<div class="info_box">
-								<input type="password" name="re_new_pas" id="re_new_pas">
-								<span id="new_repassword_ok" class="ok" style="display: none"></span>
-								<span id="new_repassword_wrong" class="warm"
-									style="display: none;"> <span class="icon"></span>
-								</span>
-							</div>
-						</div>
-						<div class="fill_info">
-							<div class="info_box goods_submit">
-								<input type="submit" class="a_service_confirm"
-									id="revise_submit" />
-							</div>
-						</div>
-					</form>
+			<div class="message_box fl">
+				<?php foreach($notice as $k => $v){ ?>
+				<div class="my_message">
+					<?php if($v['no_st'] == 0) echo '<div class="message_title new">'; else echo '<div class="message_title">'; ?>
+					<a href="#" id="<?php echo $v['no_nu'] ?>">您有一笔新交易未处理</a>
+				</div>
+				<div class="message_inner">
+					<div class="message_content">
+						<?php echo $v['no_co']; ?>
+					</div>
+					<div class="message_operation">
+						<span><a
+							href="__APP__/home/Center/delete/<?php echo $v['no_nu'] ?>">[删除]</a></span>
+					</div>
 				</div>
 			</div>
+			<?php } ?>
 		</div>
 	</div>
+	</div>
+	<script>
+		$(function() {
+			$(".message_title").click(function() {
+				var id = $(this).children('a').attr('id');
+				$.getJSON('Center/read/' + id);
+				$(this).siblings(".message_inner").slideToggle("normal");
+				$(this).toggleClass("open").toggleClass("new");
+			})
+		})
+	</script>
 </body>
 </html>

@@ -135,6 +135,7 @@
 			</div>
 		</div>
 		<div class="shopList fr">
+			<?php if(!isset($bookList)) echo '没有搜索结果'; ?>
 			<ul>
 				<?php foreach($bookList as $k=>$v){ ?>
 				<li>
@@ -159,7 +160,8 @@
 						<div class="buy_col">
 							<a class="buy"
 								href="__APP__/home/Book/index/<?php echo $v['bo_nu']; ?>"></a> <a
-								class="collection" href="__APP__/home/Collection/add/<?php echo $v['bo_nu'] ?>"></a>
+								class="collection"
+								href="__APP__/home/Collection/add/<?php echo $v['bo_nu'] ?>"></a>
 						</div>
 						<div class="price">
 							<?php echo $v['bo_pr'].' 元 '; ?>

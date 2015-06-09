@@ -38,6 +38,7 @@
         10.交易
             10.1图书信息
             10.2卖家信息
+        11.站内信
     -------------------
     
     COLOURS -----------
@@ -2021,7 +2022,6 @@ div.info_box {
     font-size: 16px;
 }
 
-
 .seller_info .row_in .row_name {
     width: 140px;
     float: left;
@@ -2029,4 +2029,64 @@ div.info_box {
     position: relative;
     font-family: Arial;
     margin-right: 10px;
+}
+
+/* 11.站内信
+---------------------------------------------------------------------- */
+.my_message{
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
+
+.my_message .message_title {
+    width: 800px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    background: #979797;
+    border-radius: 10px 10px 10px 10px;
+    cursor: pointer;
+}
+
+.my_message .message_title.open {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.my_message .message_title.new a{
+    color: #f47735;
+}
+
+.my_message .message_title a{
+    color: #ffffff;
+}
+
+.my_message .message_inner {
+    display: none;
+    position: relative;
+    height:80px;
+    background: #dddddd;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.my_message .message_inner .message_content {
+    font-size: 14px;
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+.my_message .message_inner .message_operation {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+}
+
+.my_message .message_inner .message_operation span{
+    color: #1A66B3;
+}
+
+.my_message .message_inner .message_operation span:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }

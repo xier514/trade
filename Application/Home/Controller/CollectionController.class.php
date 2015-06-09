@@ -20,14 +20,18 @@ class CollectionController extends Controller {
 	}
 	public function add($bo_nu) {
 		if (session ( 'us_nu' )) {
-			if (! D ( 'Collect' )->getOneCollect ( session ( 'us_nu' ), ( int ) $bo_nu )) {
-				if (D ( 'Collect' )->addCollect ( session ( 'us_nu' ), ( int ) $bo_nu )) {
-					$this->success ( '收藏成功' );
-				} else {
-					$this->error ( '收藏失败，请稍后再试' );
-				}
+			if (! session ( 'us_ty' )) {
+				$this->error ( '请先完善资料', U ( 'Perfect/index' ) );
 			} else {
-				$this->error ( '你已收藏' );
+				if (! D ( 'Collect' )->getOneCollect ( session ( 'us_nu' ), ( int ) $bo_nu )) {
+					if (D ( 'Collect' )->addCollect ( session ( 'us_nu' ), ( int ) $bo_nu )) {
+						$this->success ( '收藏成功' );
+					} else {
+						$this->error ( '收藏失败，请稍后再试' );
+					}
+				} else {
+					$this->error ( '你已收藏' );
+				}
 			}
 		} else {
 			$this->error ( '请先登录', U ( 'Login/index' ) );

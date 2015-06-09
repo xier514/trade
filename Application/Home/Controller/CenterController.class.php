@@ -11,7 +11,6 @@ class CenterController extends Controller {
 				$this->error ( '请先完善资料', U ( 'Perfect/index' ) );
 			} else {
 				$this->assign ( 'notice', D ( 'Notice' )->getUserNotice ( session ( 'us_nu' ) ) );
-				$this->assign ( 'collect', D ( 'Collect' )->getCollect ( session ( 'us_nu' ) ) );
 				$this->display ();
 			}
 		} else {
@@ -20,7 +19,7 @@ class CenterController extends Controller {
 	}
 	public function read($no_nu) {
 		if (D ( 'Notice' )->setNoticeState ( ( int ) $no_nu, 1 )) {
-			$this->display ();
+			//$this->display ();
 		}
 	}
 	public function delete($no_nu) {

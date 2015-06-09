@@ -68,10 +68,11 @@
 			<div class="sideMenu">
 				<div class="con s_head">图书分类</div>
 				<div class="con s_body">
-					<?php foreach($type as $k => $v){ ?>
+					<?php foreach($subtype as $k => $v){ ?>
 					<div class="level-one">
-						<a href="__APP__/home/List/index/<?php echo $v['ty_nu'] ?>"><span>
-								<?php echo $v['ty_na'] ?>
+						<a
+							href="__APP__/home/List/index/<?php echo $v['ty_nu'] ?>/<?php echo $v['su_nu'] ?>"><span>
+								<?php echo $v['su_na'] ?>
 						</span></a>
 					</div>
 					<?php } ?>
