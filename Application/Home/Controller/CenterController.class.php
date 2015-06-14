@@ -22,7 +22,7 @@ class CenterController extends Controller {
 	}
 	public function delete($no_nu) {
 		if (D ( 'Notice' )->deleteNotice ( ( int ) $no_nu )) {
-			$this->display ( 'index' );
+			$this->success ( '删除成功' );
 		}
 	}
 }
